@@ -38,7 +38,7 @@
     height: 52px;
   }
   .search-flights-button:hover {
-    background-color: var(--color-saddlebrown);
+    background-color: lightblue;
   }
   .divider,
   .form1 {

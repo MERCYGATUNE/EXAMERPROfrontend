@@ -56,6 +56,7 @@ const SignUpPage = () => {
                     }}
                   />
                   <TextField
+                  type="password"
                     className="password"
                     placeholder="Password"
                     variant="outlined"
@@ -79,6 +80,7 @@ const SignUpPage = () => {
                     }}
                   />
                   <TextField
+                  type="password"
                     className="confirm-password"
                     placeholder="Confirm password"
                     variant="outlined"

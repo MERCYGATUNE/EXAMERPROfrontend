@@ -56,6 +56,7 @@ const SignInPage = () => {
                       }}
                     />
                     <TextField
+                      type="password"
                       className="password1"
                       placeholder="Password"
                       variant="outlined"
