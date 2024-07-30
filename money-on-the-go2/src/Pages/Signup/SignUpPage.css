@@ -1,0 +1,239 @@
+.create-account {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-size: inherit;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    font-family: inherit;
+  }
+  .form-text {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .confirm-password,
+  .email,
+  .password {
+    border: 0;
+    background-color: transparent;
+    align-self: stretch;
+    height: 51px;
+    font-family: var(--font-archivo);
+    font-size: var(--font-size-base);
+    color: var(--color-gray-200);
+  }
+  .form-fields {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-base-7);
+  }
+  .search-flights-button {
+    width: 160px;
+    height: 52px;
+  }
+  .search-flights-button:hover {
+    background-color: var(--color-saddlebrown);
+  }
+  .divider,
+  .form1 {
+    align-self: stretch;
+  }
+  .form1 {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-7xl-7);
+  }
+  .divider {
+    height: 1.6px;
+    position: relative;
+    border-top: 1.6px solid var(--color-whitesmoke);
+    box-sizing: border-box;
+  }
+  .login {
+    color: var(--color-mediumblue-100);
+  }
+  .i-already-have-container {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: 0.02em;
+    line-height: 26px;
+    cursor: pointer;
+  }
+  .form-fields-container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-18xl-7);
+    text-align: center;
+    font-size: var(--font-size-base);
+  }
+  .form,
+  .login-form-container {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .form {
+    flex: 1;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-21xl) var(--padding-29xl);
+    box-sizing: border-box;
+    gap: var(--gap-5xl);
+  }
+  .login-form-container {
+    width: 589px;
+    border-radius: var(--br-5xs);
+    overflow: hidden;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .login-sections {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 269.8px var(--padding-xl) 269.7px;
+    box-sizing: border-box;
+    background-image: url(../../assets/pexels-vlado-paunovic-1567547-3038740.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--font-size-7xl);
+    color: var(--dark);
+    font-family: var(--font-archivo);
+  }
+  .contact-us,
+  .examerproinc-all-rights,
+  .privacy-policy,
+  .terms-conditions {
+    position: relative;
+    line-height: 17px;
+    font-weight: 300;
+  }
+  .contact-us,
+  .privacy-policy,
+  .terms-conditions {
+    display: inline-block;
+    min-width: 85px;
+  }
+  .contact-us,
+  .terms-conditions {
+    min-width: 120px;
+  }
+  .contact-us {
+    min-width: 67px;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-xl);
+  }
+  .examerproinc-all-rights-res-parent,
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1280px;
+  }
+  .examerproinc-all-rights-res-parent {
+    flex: 1;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+  }
+  .footer-content {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-container,
+  .sign-up-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .footer-container {
+    align-self: stretch;
+    border-top: 1px solid var(--light-grey-border);
+    box-sizing: border-box;
+    align-items: center;
+    padding: var(--padding-3xs) var(--padding-61xl) var(--padding-xs);
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--font-size-sm);
+    color: var(--color-black);
+    font-family: var(--font-archivo);
+  }
+  .sign-up-page {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-gray-100);
+    overflow: hidden;
+    align-items: flex-start;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  .sign-up-page:hover {
+    background: linear-gradient(#fff, #fff), #87550a;
+  }
+  @media screen and (max-width: 1275px) {
+    .examerproinc-all-rights-res-parent,
+    .footer-content {
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .login-sections {
+      padding-top: var(--padding-156xl);
+      padding-bottom: var(--padding-156xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .form-fields-container {
+      gap: var(--gap-lgi);
+    }
+    .form {
+      padding: var(--padding-7xl) var(--padding-5xl);
+      box-sizing: border-box;
+    }
+    .login-sections {
+      gap: var(--gap-9xl);
+      padding-top: var(--padding-95xl);
+      padding-bottom: var(--padding-95xl);
+      box-sizing: border-box;
+    }
+    .examerproinc-all-rights-res-parent {
+      flex-wrap: wrap;
+    }
+    .footer-container {
+      padding-left: var(--padding-21xl);
+      padding-right: var(--padding-21xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .create-account {
+      font-size: var(--font-size-2xl);
+    }
+    .footer-links {
+      flex-wrap: wrap;
+    }
+  }
+  
