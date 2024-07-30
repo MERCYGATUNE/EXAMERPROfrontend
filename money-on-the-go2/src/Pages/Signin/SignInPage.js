@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import Email_icon from '/Users/lennywachira/Documents/GitHub/MONEYONTHEGOfrontend/money-on-the-go2/src/assets/icons8-email-50.png'
-import Password_icon from '/Users/lennywachira/Documents/GitHub/MONEYONTHEGOfrontend/money-on-the-go2/src/assets/icons8-password-50.png'
+import Email_icon from '../../assets/icons8-email-50.png';
+import Password_icon from '../../assets/icons8-password-50.png';
 import {
   TextField,
   InputAdornment,
