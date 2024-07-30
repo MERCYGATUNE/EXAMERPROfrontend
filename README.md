@@ -1,0 +1,1 @@
+For Deployment you must run on the build commands "npm install @mui/material @emotion/react @emotion/styled", and for a run command "npm start"

@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-archivo: Archivo;
+
+  /* font sizes */
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-7xl: 26px;
+  --font-size-2xl: 21px;
+  --font-size-17xl: 36px;
+  --font-size-3xl: 22px;
+  --font-size-10xl: 29px;
+
+  /* Colors */
+  --color-gray-100: #fafafa;
+  --color-gray-200: #787878;
+  --dark: #171e1d;
+  --light-grey-border: #e8ecf2;
+  --color-black: #000;
+  --white: #fff;
+  --color-mediumblue-100: #0400c2;
+  --color-whitesmoke: #ececec;
+  --color-saddlebrown: #975b00;
+
+  /* Gaps */
+  --gap-xl: 20px;
+  --gap-9xl: 28px;
+  --gap-5xl: 24px;
+  --gap-18xl-7: 37.7px;
+  --gap-lgi: 19px;
+  --gap-7xl-7: 26.7px;
+  --gap-base-7: 15.7px;
+  --gap-11xl: 30px;
+
+  /* Paddings */
+  --padding-3xs: 10px;
+  --padding-61xl: 80px;
+  --padding-xs: 12px;
+  --padding-21xl: 40px;
+  --padding-xl: 20px;
+  --padding-95xl: 114px;
+  --padding-156xl: 175px;
+  --padding-29xl: 48px;
+  --padding-7xl: 26px;
+  --padding-5xl: 24px;
+  --padding-sm: 14px;
+  --padding-109xl: 128px;
+  --padding-178xl: 197px;
+
+  /* Border radiuses */
+  --br-5xs: 8px;
+}
+
