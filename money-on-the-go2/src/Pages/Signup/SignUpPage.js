@@ -1,20 +1,39 @@
-import { useCallback } from "react";
-import Email_icon from '../../assets/icons8-email-50.png'
-import Password_icon from '../../assets/icons8-password-50.png'
-import {
-  TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
-  Button,
-} from "@mui/material";
-import Header from "../components/Header";
+import { useCallback, useState } from "react";
+import axios from "axios";
+import Email_icon from '../../assets/icons8-email-50.png';
+import Password_icon from '../../assets/icons8-password-50.png';
+import { TextField, Button } from "@mui/material";
+import Header1 from "../components/Header1";
 import { useNavigate } from "react-router-dom";
 import "./SignUpPage.css";
-import Header1 from "../components/Header1";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:5000/register", {
+        email,
+        password,
+      });
+      if (response.data.message === "User registered successfully") {
+        // Handle successful registration, e.g., redirect to sign-in page
+        navigate("/signin");
+      }
+    } catch (error) {
+      setError(error.response.data.error);
+    }
+  };
 
   const onIAlreadyHaveClick = useCallback(() => {
     navigate("/signin");
@@ -22,7 +41,7 @@ const SignUpPage = () => {
 
   return (
     <div className="sign-up-page">
-      <Header1/>
+      <Header1 />
       <main className="login-sections">
         <div className="login-form-container">
           <div className="form">
@@ -30,12 +49,14 @@ const SignUpPage = () => {
               <h2 className="create-account">Create Account</h2>
             </div>
             <div className="form-fields-container">
-              <form className="form1">
+              <form className="form1" onSubmit={handleSignUp}>
                 <div className="form-fields">
                   <TextField
                     className="email"
                     placeholder="Email address"
                     variant="outlined"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     InputProps={{
                       endAdornment: (
                         <img
@@ -56,10 +77,12 @@ const SignUpPage = () => {
                     }}
                   />
                   <TextField
-                  type="password"
+                    type="password"
                     className="password"
                     placeholder="Password"
                     variant="outlined"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     InputProps={{
                       endAdornment: (
                         <img
@@ -80,10 +103,12 @@ const SignUpPage = () => {
                     }}
                   />
                   <TextField
-                  type="password"
+                    type="password"
                     className="confirm-password"
                     placeholder="Confirm password"
                     variant="outlined"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     InputProps={{
                       endAdornment: (
                         <img
@@ -106,6 +131,7 @@ const SignUpPage = () => {
                 </div>
                 <Button
                   className="search-flights-button"
+                  type="submit"
                   disableElevation
                   variant="contained"
                   sx={{
@@ -121,6 +147,7 @@ const SignUpPage = () => {
                 >
                   Sign up
                 </Button>
+                {error && <div style={{ color: "red" }}>{error}</div>}
               </form>
               <div className="divider" />
               <div
