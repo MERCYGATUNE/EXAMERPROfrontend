@@ -21,8 +21,8 @@ const SignInPage = () => {
         password,
       });
       if (response.data.message === "Login successful") {
-        // Handle successful login, e.g., redirect to dashboard
-        navigate("/dashboard");
+        // Redirect to subscription page after successful login
+        navigate("/subscription");
       }
     } catch (error) {
       setError("Invalid email or password");
@@ -58,6 +58,7 @@ const SignInPage = () => {
                             width="20px"
                             height="20px"
                             src={Email_icon}
+                            alt="email-icon"
                           />
                         ),
                       }}
@@ -84,6 +85,7 @@ const SignInPage = () => {
                             width="20px"
                             height="20px"
                             src={Password_icon}
+                            alt="password-icon"
                           />
                         ),
                       }}

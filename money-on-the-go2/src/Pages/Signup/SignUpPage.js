@@ -27,8 +27,8 @@ const SignUpPage = () => {
         password,
       });
       if (response.data.message === "User registered successfully") {
-        // Handle successful registration, e.g., redirect to sign-in page
-        navigate("/signin");
+        // Redirect to subscription page after successful registration
+        navigate("/subscription");
       }
     } catch (error) {
       setError(error.response.data.error);
@@ -63,6 +63,7 @@ const SignUpPage = () => {
                           width="20px"
                           height="20px"
                           src={Email_icon}
+                          alt="email-icon"
                         />
                       ),
                     }}
@@ -89,6 +90,7 @@ const SignUpPage = () => {
                           width="20px"
                           height="20px"
                           src={Password_icon}
+                          alt="password-icon"
                         />
                       ),
                     }}
@@ -115,6 +117,7 @@ const SignUpPage = () => {
                           width="20px"
                           height="20px"
                           src={Password_icon}
+                          alt="confirm-password-icon"
                         />
                       ),
                     }}
