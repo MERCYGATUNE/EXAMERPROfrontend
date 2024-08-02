@@ -1,0 +1,511 @@
+.student-dashboard-exams-child {
+    height: 1024px;
+    width: 1440px;
+    position: relative;
+    background-color: var(--color-aliceblue);
+    display: none;
+    max-width: 100%;
+  }
+  .name {
+    align-self: stretch;
+    height: 23px;
+    position: relative;
+    letter-spacing: 0.35em;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .completed-exams-container {
+    width: 186px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 151px 0 0;
+    box-sizing: border-box;
+  }
+  .recently-completed-exams {
+    margin: 0;
+    align-self: stretch;
+    height: 65px;
+    position: relative;
+    font-size: inherit;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .category {
+    height: 23px;
+  }
+  .category,
+  .subject {
+    width: 186px;
+    position: relative;
+    letter-spacing: 0.3em;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .exam-info {
+    width: 466px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+  }
+  .exam-info,
+  .recent-exam-info,
+  .subject-category-container {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .subject-category-container {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0 40px;
+    box-sizing: border-box;
+    font-size: var(--font-size-base);
+  }
+  .recent-exam-info {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-3xl);
+  }
+  .profile-child {
+    height: 50px;
+    width: 186px;
+    position: relative;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-aliceblue);
+    display: none;
+  }
+  .allura-avatar,
+  .allura-avatar-icon1 {
+    position: absolute;
+    border-radius: 9.59px;
+  }
+  .allura-avatar {
+    top: 0.1px;
+    left: 1.7px;
+    background-color: var(--color-royalblue);
+    width: 43.1px;
+    height: 40.3px;
+    z-index: 1;
+  }
+  .allura-avatar-icon1 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+  .profile-avatar {
+    height: 40.4px;
+    width: 48px;
+    position: relative;
+  }
+  .ayo1 {
+    text-decoration: none;
+    position: relative;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: inherit;
+    display: inline-block;
+    min-width: 27.6px;
+    z-index: 1;
+  }
+  .profile,
+  .profile-info,
+  .user-name-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .user-name-container {
+    flex-direction: column;
+    padding: var(--padding-smi-1) 0 0;
+  }
+  .profile,
+  .profile-info {
+    flex-direction: row;
+  }
+  .profile {
+    flex: 1;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-aliceblue);
+    padding: var(--padding-8xs-9) var(--padding-smi) var(--padding-8xs-7);
+    gap: var(--gap-2xs-2);
+    z-index: 1;
+  }
+  .profile-info {
+    align-self: stretch;
+    padding: 0 0 0 31px;
+  }
+  .completed-on {
+    width: 189px;
+    height: 23px;
+    position: relative;
+    font-size: var(--font-size-base);
+    letter-spacing: 0.3em;
+    display: inline-block;
+    font-family: var(--font-open-sans-hebrew);
+    color: var(--color-black);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .profile-container {
+    width: 217px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 101px;
+    font-size: var(--font-size-mini);
+    color: var(--color-darkslategray);
+    font-family: var(--font-open-sans);
+  }
+  .recently-completed-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-width: 553px;
+    max-width: 100%;
+    row-gap: 20px;
+    margin-left: -11px;
+    font-size: var(--font-size-29xl);
+  }
+  .exam-history,
+  .exam-history-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .exam-history-header {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 20px;
+  }
+  .exam-history {
+    width: 1040px;
+    justify-content: flex-end;
+    padding: 0 var(--padding-6xs);
+    box-sizing: border-box;
+  }
+  .rectangle-div {
+    height: 60px;
+    width: 1083px;
+    position: relative;
+    border-radius: var(--br-8xl);
+    background-color: var(--color-white);
+    flex-shrink: 0;
+    display: none;
+  }
+  .jamias-high-school {
+    width: 204px;
+    height: 32px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .school-name-container {
+    width: 239px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-10xs) var(--padding-xl) 0 0;
+    box-sizing: border-box;
+  }
+  .form-1 {
+    align-self: stretch;
+    height: 32px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .form-container {
+    width: 204px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-11xs) 0 0;
+    box-sizing: border-box;
+  }
+  .biology {
+    height: 32px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    min-width: 82px;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .subject-container {
+    width: 150px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-12xs) var(--padding-xl) 0 0;
+    box-sizing: border-box;
+  }
+  .exam-button-container {
+    height: 31px;
+    width: 139px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .exam-headers-inner,
+  .group-div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .group-div {
+    flex: 1;
+    border-radius: var(--br-8xl);
+    background-color: var(--color-white);
+    overflow-x: auto;
+    justify-content: space-between;
+    padding: var(--padding-2xs) 85px var(--padding-sm) var(--padding-19xl);
+    gap: var(--gap-xl);
+    z-index: 1;
+  }
+  .exam-headers-inner {
+    align-self: stretch;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-7xs);
+  }
+  .form-1-wrapper,
+  .jamias-high-school-exam-wrapper {
+    height: 32px;
+    width: 204px;
+    flex-shrink: 0;
+    flex-direction: column;
+  }
+  .jamias-high-school-exam-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-10xs) 0 0;
+    box-sizing: border-box;
+  }
+  .form-1-wrapper {
+    padding: var(--padding-11xs) 0 0;
+  }
+  .biology-wrapper,
+  .exam-headers-child,
+  .form-1-wrapper,
+  .rectangle-parent1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .biology-wrapper {
+    height: 32px;
+    flex-direction: column;
+    padding: var(--padding-12xs) 0 0;
+  }
+  .exam-headers-child,
+  .rectangle-parent1 {
+    align-self: stretch;
+    flex-direction: row;
+    max-width: 100%;
+  }
+  .rectangle-parent1 {
+    flex: 1;
+    border-radius: var(--br-8xl);
+    background-color: var(--color-white);
+    overflow-x: auto;
+    padding: var(--padding-2xs) var(--padding-19xl) var(--padding-sm);
+    gap: var(--gap-57xl);
+    z-index: 1;
+  }
+  .exam-headers-child {
+    height: 66px;
+    padding: 0 0 var(--padding-7xs);
+  }
+  .view-history-button-container-child {
+    height: 59px;
+    width: 337px;
+    max-width: 100%;
+    z-index: 1;
+  }
+  .view-history-button-container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--padding-2xl) 0 var(--padding-xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .recommended-exams {
+    margin: 0;
+    align-self: stretch;
+    height: 71px;
+    position: relative;
+    font-size: inherit;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .recommended-exams-header {
+    width: 634px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 9px;
+    max-width: 100%;
+  }
+  .recommended-exams-header-wrapper {
+    justify-content: center;
+    padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+    text-align: center;
+    font-size: var(--font-size-29xl);
+  }
+  .exam-headers-inner3,
+  .recommended-exams-header-wrapper,
+  .view-all-exams-button-containe {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .exam-headers-inner3 {
+    height: 78px;
+    justify-content: flex-start;
+    padding: 0 0 18px;
+  }
+  .view-all-exams-button-containe {
+    justify-content: center;
+    padding: 0 var(--padding-7xl) 0 var(--padding-xl);
+  }
+  .exam-headers {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 21px;
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    font-family: var(--font-open-sans-hebrew);
+  }
+  .content,
+  .student-dashboard-exams {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .content {
+    flex: 1;
+    flex-direction: column;
+    padding: 43px 0 0;
+    max-width: calc(100% - 319px);
+  }
+  .student-dashboard-exams {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-aliceblue);
+    overflow: hidden;
+    flex-direction: row;
+    padding: 0 var(--padding-19xl) 0 0;
+    gap: 46px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  @media screen and (max-width: 1050px) {
+    .group-div {
+      padding-right: 42px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .recently-completed-exams {
+      font-size: var(--font-size-19xl);
+    }
+    .rectangle-parent1 {
+      gap: var(--gap-19xl);
+    }
+    .recommended-exams {
+      font-size: var(--font-size-19xl);
+    }
+    .content {
+      padding-top: 28px;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+    .student-dashboard-exams {
+      padding-left: var(--padding-xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 725px) {
+    .exam-info {
+      flex-wrap: wrap;
+    }
+    .recent-exam-info {
+      min-width: 100%;
+    }
+    .recently-completed-container {
+      flex-wrap: wrap;
+      min-width: 100%;
+      margin-left: 0;
+    }
+    .group-div {
+      padding-right: var(--padding-2xl);
+      box-sizing: border-box;
+    }
+    .rectangle-parent1 {
+      gap: var(--gap-lgi);
+    }
+    .content {
+      padding-top: var(--padding-xl);
+      box-sizing: border-box;
+    }
+    .student-dashboard-exams {
+      gap: 23px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .recently-completed-exams,
+    .recommended-exams {
+      font-size: var(--font-size-10xl);
+    }
+  }
+  

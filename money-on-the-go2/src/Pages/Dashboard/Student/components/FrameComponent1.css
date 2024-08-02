@@ -1,0 +1,99 @@
+.examerpro2 {
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+    color: inherit;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .examerpro-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-16xl) 0 0;
+  }
+  .profile-inner {
+    height: 50px;
+    width: 186px;
+    position: relative;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-aliceblue);
+    display: none;
+  }
+  .allura-avatar-icon3,
+  .allura-avatar2 {
+    position: absolute;
+    border-radius: 9.59px;
+  }
+  .allura-avatar2 {
+    top: 0.1px;
+    left: 1.7px;
+    background-color: var(--color-royalblue);
+    width: 43.1px;
+    height: 40.3px;
+    z-index: 1;
+  }
+  .allura-avatar-icon3 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+  .allura-avatar-parent {
+    height: 40.4px;
+    width: 48px;
+    position: relative;
+  }
+  .ayo3 {
+    text-decoration: none;
+    position: relative;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: inherit;
+    display: inline-block;
+    min-width: 27.6px;
+    z-index: 1;
+  }
+  .user-name-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-smi-1) 0 0;
+  }
+  .frame-container,
+  .profile2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .profile2 {
+    width: 186px;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-aliceblue);
+    justify-content: flex-start;
+    padding: var(--padding-8xs-9) var(--padding-smi) var(--padding-8xs-7);
+    box-sizing: border-box;
+    gap: var(--gap-2xs-2);
+    z-index: 1;
+    font-size: var(--font-size-mini);
+    color: var(--color-darkslategray);
+    font-family: var(--font-open-sans);
+  }
+  .frame-container {
+    position: absolute;
+    top: 43px;
+    left: 57px;
+    width: 1338px;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--font-size-5xl);
+    color: var(--color-black);
+    font-family: var(--font-ubuntu);
+  }
+  
