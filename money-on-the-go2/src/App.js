@@ -6,7 +6,8 @@ import SignUpPage from './Pages/Signup/SignUpPage';
 import SubscriptionPage from './Pages/SubscriptionPage/SubscriptionPage';
 import Home from './Pages/Home/Home';
 
-const stripePromise = loadStripe('your-publishable-key-here');
+// Ensure this is your actual public key from .env
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 function App() {
   return (
