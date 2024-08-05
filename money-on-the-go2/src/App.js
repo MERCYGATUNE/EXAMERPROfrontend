@@ -9,7 +9,8 @@ import StudentDashboardExams from './Pages/Dashboard/Student/Exams/StudentDashbo
 import StudentDashboardSettings from './Pages/Dashboard/Student/Settings/StudentDashboardSettings';
 import Home from './Pages/Home/Home';
 
-const stripePromise = loadStripe('your-publishable-key-here');
+// Ensure this is your actual public key from .env
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 function App() {
   return (

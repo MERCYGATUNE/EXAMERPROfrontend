@@ -1,61 +1,51 @@
-/* src/components/SubscriptionPage.css */
+/* SubscriptionPage.css */
 .subscription-container {
-  max-width: 500px;
-  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-}
-
-.subscription-header {
-  text-align: center;
-  margin-bottom: 20px;
+  max-width: 600px;
+  margin: auto;
 }
 
 .subscription-header h1 {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
+  text-align: center;
 }
 
 .subscription-form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-.subscription-form button {
-  margin-bottom: 10px;
+.subscription-options button {
   padding: 10px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
   border: none;
-  border-radius: 4px;
+  background-color: #f0f0f0;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 5px;
 }
 
-.subscription-form button:hover {
-  background-color: #0056b3;
+.subscription-options button.active {
+  background-color: #0400c2;
+  color: #fff;
 }
 
-.subscription-form .stripe-element {
-  margin-bottom: 20px;
+.stripe-element {
+  margin: 20px 0;
+}
+
+.submit-button {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: none;
+  background-color: #0400c2;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.subscription-form .stripe-element--focus {
-  border-color: #007bff;
+.submit-button:disabled {
+  background-color: #c0c0c0;
 }
 
-.subscription-form .submit-button {
-  background-color: #28a745;
-}
-
-.subscription-form .submit-button:hover {
-  background-color: #218838;
+.error-message {
+  color: red;
+  text-align: center;
 }

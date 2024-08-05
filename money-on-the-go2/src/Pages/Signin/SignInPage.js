@@ -21,7 +21,7 @@ const SignInPage = () => {
         password,
       });
       if (response.data.message === "Login successful") {
-        // Redirect to subscription page after successful login
+        localStorage.setItem('userId', response.data.user_id); // Store user ID
         navigate("/subscription");
       }
     } catch (error) {

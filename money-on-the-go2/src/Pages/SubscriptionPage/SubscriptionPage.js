@@ -4,10 +4,12 @@ import axios from 'axios';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './SubscriptionPage.css';
 
-// Example function to get the current user ID
 const fetchUserId = async () => {
-  // Replace this with your actual logic to fetch user ID
-  return 'example-user-id'; // Replace with actual user ID
+  const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+  if (!userId) {
+    throw new Error('User ID not found in local storage');
+  }
+  return userId;
 };
 
 const SubscriptionPage = () => {
@@ -17,59 +19,77 @@ const SubscriptionPage = () => {
   const [amount, setAmount] = useState(0);
   const [userId, setUserId] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const getUserId = async () => {
-      const id = await fetchUserId();
-      setUserId(id);
+      try {
+        const id = await fetchUserId();
+        setUserId(id);
+      } catch (error) {
+        console.error('Error fetching user ID:', error);
+        setError('Failed to fetch user information. Please log in again.');
+        setTimeout(() => navigate('/signin'), 3000); // Redirect to login page after 3 seconds
+      }
     };
 
     getUserId();
-  }, []);
+  }, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!stripe || !elements) {
-      console.error('Stripe has not loaded.');
+      setError('Stripe.js or Elements not loaded.');
       return;
     }
 
-    if (amount <= 0) {
-      alert('Please select a valid subscription plan.');
+    if (amount < 65) { // Adjusting to the minimum threshold
+      setError('Please select a subscription plan with at least 65 KSH.');
+      return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+
+    if (!cardElement) {
+      setError('CardElement not found.');
       return;
     }
 
     setLoading(true);
-    const cardElement = elements.getElement(CardElement);
+    setError(''); // Reset error state
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error: stripeError, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
     });
 
-    if (error) {
-      console.error('Error creating payment method:', error);
-      alert(`Payment error: ${error.message}`);
+    if (stripeError) {
+      console.error('Error creating payment method:', stripeError);
+      setError(`Payment error: ${stripeError.message}`);
       setLoading(false);
       return;
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/create-subscription', {
+      const payload = {
         payment_method_id: paymentMethod.id,
         amount,
         user_id: userId,
-      });
+      };
+      console.log('Sending payload to backend:', payload);
+
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/create-subscription`, payload);
 
       if (response.data.success) {
         alert('Payment successful!');
-        navigate('/');
+        navigate('/dashboard'); // Navigate to the dashboard page after successful payment
       } else {
-        alert('Payment failed');
+        setError('Payment failed: ' + response.data.error);
       }
     } catch (error) {
       console.error('Error processing payment:', error);
-      alert('An error occurred while processing the payment.');
+      setError('An error occurred while processing the payment.');
     } finally {
       setLoading(false);
     }
@@ -81,14 +101,29 @@ const SubscriptionPage = () => {
         <h1>Choose Your Subscription Plan</h1>
       </div>
       <form className="subscription-form" onSubmit={handleSubmit}>
-        <button type="button" onClick={() => setAmount(50)}>Student - 50 KSH</button>
-        <button type="button" onClick={() => setAmount(100)}>Examiner - 100 KSH</button>
+        <div className="subscription-options">
+          <button
+            type="button"
+            onClick={() => setAmount(65)} // Updated amount
+            className={amount === 65 ? 'active' : ''}
+          >
+            Student - 65 KSH
+          </button>
+          <button
+            type="button"
+            onClick={() => setAmount(130)} // Updated amount
+            className={amount === 130 ? 'active' : ''}
+          >
+            Examiner - 130 KSH
+          </button>
+        </div>
         <div className="stripe-element">
           <CardElement />
         </div>
         <button type="submit" className="submit-button" disabled={!stripe || loading}>
           {loading ? 'Processing...' : `Pay ${amount} KSH`}
         </button>
+        {error && <div className="error-message">{error}</div>}
       </form>
     </div>
   );
