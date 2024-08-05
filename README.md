@@ -1,1 +1,2 @@
 For Deployment you must run on the build commands "npm install @mui/material @emotion/react @emotion/styled", and for a run command "npm start"
+stripe :  npm install @stripe/react-stripe-js @stripe/stripe-js 

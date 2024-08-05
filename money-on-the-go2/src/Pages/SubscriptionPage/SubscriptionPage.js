@@ -83,7 +83,7 @@ const SubscriptionPage = () => {
 
       if (response.data.success) {
         alert('Payment successful!');
-        navigate('/');
+        navigate('/dashboard'); // Navigate to the dashboard page after successful payment
       } else {
         setError('Payment failed: ' + response.data.error);
       }
