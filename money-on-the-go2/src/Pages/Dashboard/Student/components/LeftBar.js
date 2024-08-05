@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from "../../../../assets/icons8-home-30.png"
+import SettingsIcon from "../../../../assets/icons8-settings-50.png"
+import SignOutIcon from "../../../../assets/icons8-sign-out-30.png"
+import ExamIcon from "../../../../assets/icons8-exam-50.png"
 import PropTypes from "prop-types";
 import "./LeftBar.css";
 
@@ -19,14 +23,22 @@ const LeftBar = ({ className = "" }) => {
     <div className={`left-bar2 ${className}`}>
       <div className="left-bar-inner" />
       <div className="side-bar-content">
-        <div className="settings-button">
-          <a className="examiner3">STUDENT</a>
+      <div className="side-bar-top">
+        <div className="exam-pro-container">
+          <a className="examerpro1">ExamerPro™</a>
+          <div className="examiner-container">
+            <a className="examiner2">STUDENT</a>
+          </div>
         </div>
+      </div>
         <div className="navigation-links">
+        <div className = "documents1">
+        <div className="documents-child" />
+        <div className="exams-indicator" />
           <Button
-            className="home4"
+            className="exams1"
             startIcon={
-              <img width="25px" height="26.3px" src="/iconlyboldhome.svg" />
+              <img width="25px" height="26.3px" src={HomeIcon} />
             }
             disableElevation
             variant="contained"
@@ -41,13 +53,14 @@ const LeftBar = ({ className = "" }) => {
           >
             Home
           </Button>
+        </div>
           <div className="settings-icon-container1">
             <div className="documents2" onClick={onDocumentsContainerClick}>
               <img
                 className="iconlylight-outlinedocument4"
                 loading="lazy"
                 alt=""
-                src="/iconlylight-outlinedocument.svg"
+                src={ExamIcon}
               />
               <b className="exams2">Exams</b>
             </div>
@@ -60,7 +73,7 @@ const LeftBar = ({ className = "" }) => {
                 className="iconlylight-outlinesetting1"
                 loading="lazy"
                 alt=""
-                src="/iconlylight-outlinesetting.svg"
+                src={SettingsIcon}
               />
             </div>
             <b className="settings4">Settings</b>
@@ -74,7 +87,7 @@ const LeftBar = ({ className = "" }) => {
               className="iconlylight-outlinelogout2"
               loading="lazy"
               alt=""
-              src="/iconlylight-outlinelogout@2x.png"
+              src={SignOutIcon}
             />
           </div>
           <b className="sign-out2">Sign Out</b>

@@ -8,6 +8,59 @@
     height: 100%;
     display: none;
   }
+  .examerpro1,
+  .examiner2 {
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+    color: inherit;
+    z-index: 1;
+  }
+  .examiner2 {
+    letter-spacing: 0.37em;
+  }
+  .examerpro1{
+    color: black !important;
+  }
+  .documents-child,
+  .exams-indicator {
+    align-self: stretch;
+    position: relative;
+  }
+  .documents-child {
+    width: 270px;
+    background-color: var(--color-aliceblue);
+    display: none;
+  }
+  .exams-indicator {
+    width: 6px;
+    background-color: var(--color-royalblue);
+    z-index: 1;
+  }
+  .examiner-container {
+    flex-direction: row;
+    padding: 0 0 0 var(--padding-10xs);
+    font-size: var(--font-size-xl);
+    color: var(--color-royalblue);
+    font-family: var(--font-open-sans);
+  }
+  .exam-pro-container,
+  .examiner-container,
+  .side-bar-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .exam-pro-container {
+    flex-direction: column;
+    gap: var(--gap-3xs);
+  }
+  .side-bar-top {
+    flex-direction: row;
+    padding: 0 var(--padding-38xl);
+    font-size: var(--font-size-5xl);
+    font-family: var(--font-ubuntu);
+  }
   .examiner3 {
     text-decoration: none;
     position: relative;
@@ -160,6 +213,17 @@
     font-family: var(--font-open-sans);
   }
   @media screen and (max-width: 450px) {
+    .examerpro1 {
+      font-size: var(--font-size-lgi);
+    }
+    .examiner2 {
+      font-size: var(--font-size-base);
+    }
+    .side-bar-top {
+      padding-left: var(--padding-xl);
+      padding-right: var(--padding-xl);
+      box-sizing: border-box;
+    }
     .examiner3,
     .exams2,
     .settings4,

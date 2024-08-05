@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import ChangeEmailPopup from "./popups/ChangeEmail/ChangeEmail";
 import ChangeUsernamePopup from "./popups/ChangeUsername/ChangeUsername";
 import ResetPasswordPopup from "./popups/ResetPassword/ResetPassword";
+import StudentProfilePicture from '../../../../assets/icons8-graduate-48.png'
 import PortalPopup from "../components/PortalPopup";
 import Content from "../components/Content";
 import LeftBar2 from "../components/LeftBar2";
@@ -52,7 +53,7 @@ const StudentDashboardSettings = () => {
               className="allura-avatar-icon"
               loading="lazy"
               alt=""
-              src="/allura-avatar-1@2x.png"
+              src={StudentProfilePicture}
             />
           </div>
         </div>

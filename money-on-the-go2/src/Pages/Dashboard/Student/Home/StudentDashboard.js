@@ -2,6 +2,8 @@ import FrameComponent1 from "../components/FrameComponent1";
 import TopPerforming from "../components/TopPerforming";
 import TopPerforming1 from "../components/TopPerforming1";
 import LeftBar from "../components/LeftBar";
+import CoolKidsAvatar from '../../../../assets/casual-life-3d-girl-with-tablet-and-working-process-on-desktop.png'
+import ProgressTickGif from '../../../../assets/bouncy-completed-checklist-form-on-a-clipboard-and-pencil.gif'
 import "./StudentDashboard.css";
 
 const StudentDashboard = () => {
@@ -9,7 +11,7 @@ const StudentDashboard = () => {
     <div className="student-dashboard">
       <div className="student-dashboard-child" />
       <FrameComponent1 />
-      <img className="cool-kids-avatar" alt="" src="/cool-kids-avatar@2x.png" />
+      <img className="cool-kids-avatar" alt="" src={CoolKidsAvatar} />
       <section className="frame-section">
         <div className="frame-child6" />
         <h2 className="welcome-back-ayo">Welcome back, Ayo!👋</h2>
@@ -23,7 +25,7 @@ const StudentDashboard = () => {
             className="top-performing-title-child"
             loading="lazy"
             alt=""
-            src="/group-78.svg"
+            src={ProgressTickGif}
           />
         </div>
         <h1 className="view-your-progress">View your progress</h1>

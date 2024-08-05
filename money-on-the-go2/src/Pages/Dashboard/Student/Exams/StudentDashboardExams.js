@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import LeftBar1 from "../components/LeftBar1";
+import StudentProfilePicture from '../../../../assets/icons8-graduate-48.png'
 import "./StudentDashboardExams.css";
 
 const StudentDashboardExams = () => {
@@ -36,7 +37,7 @@ const StudentDashboardExams = () => {
                           className="allura-avatar-icon1"
                           loading="lazy"
                           alt=""
-                          src="/allura-avatar@2x.png"
+                          src={StudentProfilePicture}
                         />
                       </div>
                       <div className="user-name-container">
