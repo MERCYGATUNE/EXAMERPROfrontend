@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from "../../../../assets/icons8-home-30.png"
+import SettingsIcon from "../../../../assets/icons8-settings-50.png"
+import SignOutIcon from "../../../../assets/icons8-sign-out-30.png"
+import ExamIcon from "../../../../assets/icons8-exam-50.png"
 import PropTypes from "prop-types";
 import "./LeftBar2.css";
 
@@ -17,6 +21,14 @@ const LeftBar2 = ({ className = "" }) => {
 
   return (
     <div className={`left-bar ${className}`}>
+      <div className="side-bar-top">
+        <div className="exam-pro-container">
+          <a className="examerpro1">ExamerPro™</a>
+          <div className="examiner-container">
+            <a className="examiner2">STUDENT</a>
+          </div>
+        </div>
+      </div>
       <div className="left-bar-child" />
       <div className="logout-entry">
         <div className="home" onClick={onHomeContainerClick}>
@@ -24,7 +36,7 @@ const LeftBar2 = ({ className = "" }) => {
             className="iconlyboldhome"
             loading="lazy"
             alt=""
-            src="/iconlyboldhome.svg"
+            src={HomeIcon}
           />
           <a className="home1">Home</a>
         </div>
@@ -36,7 +48,7 @@ const LeftBar2 = ({ className = "" }) => {
               className="iconlylight-outlinedocument"
               loading="lazy"
               alt=""
-              src="/iconlylight-outlinedocument.svg"
+              src={ExamIcon}
             />
             <b className="exams">Exams</b>
           </div>
@@ -47,7 +59,7 @@ const LeftBar2 = ({ className = "" }) => {
             <img
               width="24px"
               height="25.8px"
-              src="/iconlylight-outlinesetting.svg"
+              src={SettingsIcon}
             />
           }
           disableElevation
@@ -71,7 +83,7 @@ const LeftBar2 = ({ className = "" }) => {
               className="iconlylight-outlinelogout"
               loading="lazy"
               alt=""
-              src="/iconlylight-outlinelogout@2x.png"
+              src={SignOutIcon}
             />
           </div>
           <b className="sign-out">Sign Out</b>

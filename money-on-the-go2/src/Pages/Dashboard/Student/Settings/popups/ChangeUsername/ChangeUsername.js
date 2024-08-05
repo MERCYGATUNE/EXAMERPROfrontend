@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, TextField} from "@mui/material";
 import PropTypes from "prop-types";
 import "./ChangeUsername.css";
 
@@ -14,12 +14,23 @@ const ChangeUsernamePopup = ({ className = "", onClose }) => {
             Type your new username below if you are certain.
           </div>
         </div>
-        <div className="input">
-          <div className="username-input">
-            <div className="username-input-child" />
-            <div className="username">Username</div>
+        <div className="frame-wrapper">
+            <TextField
+              className="frame-textfield"
+              placeholder="Type"
+              variant="outlined"
+              sx={{
+                "& fieldset": { border: "none" },
+                "& .MuiInputBase-root": {
+                  height: "80px",
+                  backgroundColor: "#fff",
+                  borderRadius: "39px",
+                  fontSize: "24px",
+                },
+                "& .MuiInputBase-input": { color: "#000" },
+              }}
+            />
           </div>
-        </div>
       </section>
       <div className="submit-action">
         <Button

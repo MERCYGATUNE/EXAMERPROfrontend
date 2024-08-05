@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import PropTypes from "prop-types";
 import "./ChangeEmail.css";
 
@@ -14,12 +14,23 @@ const ChangeEmailPopup = ({ className = "", onClose }) => {
             Type your new email below if you are certain.
           </div>
         </div>
-        <div className="email-input-wrapper">
-          <div className="email-input">
-            <div className="email-input-child" />
-            <div className="email1">Email</div>
+        <div className="frame-wrapper">
+            <TextField
+              className="frame-textfield"
+              placeholder="Type"
+              variant="outlined"
+              sx={{
+                "& fieldset": { border: "none" },
+                "& .MuiInputBase-root": {
+                  height: "80px",
+                  backgroundColor: "#fff",
+                  borderRadius: "39px",
+                  fontSize: "24px",
+                },
+                "& .MuiInputBase-input": { color: "#000" },
+              }}
+            />
           </div>
-        </div>
       </section>
       <div className="submit-button-frame">
         <Button

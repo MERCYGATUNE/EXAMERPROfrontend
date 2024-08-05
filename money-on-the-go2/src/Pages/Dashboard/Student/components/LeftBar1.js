@@ -1,5 +1,9 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from "../../../../assets/icons8-home-30.png"
+import SettingsIcon from "../../../../assets/icons8-settings-50.png"
+import SignOutIcon from "../../../../assets/icons8-sign-out-30.png"
+import ExamIcon from "../../../../assets/icons8-exam-50.png"
 import PropTypes from "prop-types";
 import "./LeftBar1.css";
 
@@ -32,7 +36,7 @@ const LeftBar1 = ({ className = "" }) => {
               className="iconlyboldhome1"
               loading="lazy"
               alt=""
-              src="/iconlyboldhome.svg"
+              src={HomeIcon}
             />
             <a className="home3">Home</a>
           </div>
@@ -47,7 +51,7 @@ const LeftBar1 = ({ className = "" }) => {
                   className="iconlylight-outlinedocument1"
                   loading="lazy"
                   alt=""
-                  src="/iconlylight-outlinedocument1.svg"
+                  src={ExamIcon}
                 />
                 <b className="exams1">Exams</b>
               </div>
@@ -60,7 +64,7 @@ const LeftBar1 = ({ className = "" }) => {
                   className="iconlylight-outlinesetting"
                   loading="lazy"
                   alt=""
-                  src="/iconlylight-outlinesetting.svg"
+                  src={SettingsIcon}
                 />
               </div>
               <b className="settings2">Settings</b>
@@ -75,7 +79,7 @@ const LeftBar1 = ({ className = "" }) => {
               className="iconlylight-outlinelogout1"
               loading="lazy"
               alt=""
-              src="/iconlylight-outlinelogout@2x.png"
+              src={SignOutIcon}
             />
           </div>
           <b className="sign-out1">Sign Out</b>

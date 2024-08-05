@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "./FrameComponent1.css";
+import StudentProfilePicture from '../../../../assets/icons8-graduate-48.png'
 
 const FrameComponent1 = ({ className = "" }) => {
   return (
@@ -15,7 +16,7 @@ const FrameComponent1 = ({ className = "" }) => {
             className="allura-avatar-icon3"
             loading="lazy"
             alt=""
-            src="/allura-avatar@2x.png"
+            src={StudentProfilePicture}
           />
         </div>
         <div className="user-name-container1">
