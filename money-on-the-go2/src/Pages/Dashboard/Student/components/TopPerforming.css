@@ -1,0 +1,122 @@
+.top-performing-inner {
+    height: 274px;
+    width: 690px;
+    position: relative;
+    border-radius: var(--br-xl);
+    background-color: var(--color-lightgoldenrodyellow);
+    display: none;
+    max-width: 100%;
+  }
+  .take-exam-button-icons,
+  .take-exam-button-icons1 {
+    position: absolute;
+    top: 10.5px;
+    left: 0;
+    width: 418px;
+    height: 211px;
+    z-index: 1;
+  }
+  .take-exam-button-icons1 {
+    top: 0;
+    left: 0.5px;
+    z-index: 2;
+  }
+  .take-a-quick,
+  .take-exam-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 418.5px;
+    height: 221.5px;
+  }
+  .take-a-quick {
+    margin: 0;
+    top: 116.5px;
+    left: 14px;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-block;
+    width: 238px;
+    height: 144px;
+    z-index: 3;
+  }
+  .take-exam-button-container {
+    height: 260.5px;
+    width: 418.5px;
+    position: relative;
+    min-width: 418.5px;
+    max-width: 100%;
+  }
+  .iconlylight-outlinedocument2,
+  .iconlylight-outlinedocument3 {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 193px;
+    height: 187.9px;
+    z-index: 1;
+  }
+  .iconlylight-outlinedocument3 {
+    top: 0;
+    left: 10px;
+    z-index: 2;
+  }
+  .exam-document-icon {
+    align-self: stretch;
+    height: 197.9px;
+    position: relative;
+  }
+  .exam-document-icon-container,
+  .top-performing2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .exam-document-icon-container {
+    width: 203px;
+    flex-direction: column;
+    padding: var(--padding-6xl-5) 0 0;
+    min-width: 203px;
+  }
+  .top-performing2 {
+    position: absolute;
+    top: 320px;
+    left: 351px;
+    border-radius: var(--br-xl);
+    background-color: var(--color-lightgoldenrodyellow);
+    width: 690px;
+    flex-direction: row;
+    padding: var(--padding-6xs-5) var(--padding-xs) var(--padding-6xs);
+    gap: var(--gap-7xs-5);
+    max-width: 100%;
+    z-index: 1;
+    text-align: left;
+    font-size: var(--font-size-21xl);
+    color: var(--color-peru);
+    font-family: var(--font-open-sans);
+  }
+  @media screen and (max-width: 750px) {
+    .take-a-quick {
+      font-size: var(--font-size-13xl);
+    }
+  }
+  @media screen and (max-width: 675px) {
+    .take-exam-button-container {
+      flex: 1;
+      min-width: 100%;
+    }
+    .exam-document-icon-container {
+      flex: 1;
+    }
+    .top-performing2 {
+      flex-wrap: wrap;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .take-a-quick {
+      font-size: var(--font-size-5xl);
+    }
+  }
+  

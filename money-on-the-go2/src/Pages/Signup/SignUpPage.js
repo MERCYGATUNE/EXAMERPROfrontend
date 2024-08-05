@@ -22,16 +22,16 @@ const SignUpPage = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/register", {
+      const response = await axios.post("http://localhost:5555/register", {
         email,
         password,
       });
       if (response.data.message === "User registered successfully") {
-        // Redirect to subscription page after successful registration
-        navigate("/subscription");
+        // Handle successful registration, e.g., redirect to sign-in page
+        navigate("/signin");
       }
     } catch (error) {
-      setError(error.response.data.error);
+      setError(error.response?.data?.message || error.message);
     }
   };
 

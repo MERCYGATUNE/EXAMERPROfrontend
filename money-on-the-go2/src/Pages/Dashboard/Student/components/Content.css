@@ -1,0 +1,123 @@
+.examerpro,
+.examiner1 {
+  text-decoration: none;
+  position: relative;
+  font-weight: 700;
+  color: inherit;
+  white-space: nowrap;
+  z-index: 1;
+}
+.examiner1 {
+  letter-spacing: 0.37em;
+}
+.brand,
+.examiner,
+.warning-message {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.examiner {
+  flex-direction: row;
+  padding: 0 var(--padding-10xs) 0 0;
+  font-size: var(--font-size-xl);
+  color: var(--color-royalblue);
+  font-family: var(--font-open-sans);
+}
+.brand,
+.warning-message {
+  flex-direction: column;
+}
+.brand {
+  gap: var(--gap-3xs);
+}
+.warning-message {
+  padding: var(--padding-16xl) 0 0;
+}
+.profile-item {
+  height: 50px;
+  width: 186px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-aliceblue);
+  display: none;
+}
+.allura-avatar-icon2,
+.allura-avatar1 {
+  position: absolute;
+  border-radius: 9.59px;
+}
+.allura-avatar1 {
+  top: 0.1px;
+  left: 1.7px;
+  background-color: var(--color-royalblue);
+  width: 43.1px;
+  height: 40.3px;
+  z-index: 1;
+}
+.allura-avatar-icon2 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.avatar,
+.ayo2 {
+  position: relative;
+}
+.avatar {
+  height: 40.4px;
+  width: 48px;
+}
+.ayo2 {
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  min-width: 27.6px;
+  z-index: 1;
+}
+.content1,
+.profile-name,
+.profile1 {
+  display: flex;
+  align-items: flex-start;
+}
+.profile-name {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-smi-1) 0 0;
+}
+.content1,
+.profile1 {
+  flex-direction: row;
+}
+.profile1 {
+  width: 186px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-aliceblue);
+  justify-content: flex-start;
+  padding: var(--padding-8xs-9) var(--padding-smi) var(--padding-8xs-7);
+  box-sizing: border-box;
+  gap: var(--gap-2xs-2);
+  z-index: 1;
+  font-size: var(--font-size-mini);
+  color: var(--color-darkslategray);
+  font-family: var(--font-open-sans);
+}
+.content1 {
+  position: absolute;
+  top: 43px;
+  left: 57px;
+  width: 1338px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-ubuntu);
+}

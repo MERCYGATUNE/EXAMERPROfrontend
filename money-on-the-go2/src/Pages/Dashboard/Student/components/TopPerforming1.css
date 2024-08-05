@@ -1,0 +1,113 @@
+.exam-progress-bar,
+.iconlylight-outlinebookmark {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.exam-progress-bar {
+  border-radius: var(--br-xl);
+  background-color: var(--color-honeydew);
+  width: 690px;
+}
+.iconlylight-outlinebookmark {
+  max-height: 100%;
+  width: 117px;
+  z-index: 1;
+}
+.left-bookmark-indicator {
+  position: absolute;
+  top: 53px;
+  left: 533px;
+  width: 98px;
+  height: 21px;
+  z-index: 2;
+}
+.left-bookmark-icon-container {
+  align-self: stretch;
+  height: 125px;
+  position: relative;
+}
+.left-bookmark-icon-container-wrapper {
+  position: absolute;
+  top: 73px;
+  left: 40px;
+  width: 631px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-6xl-5) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.right-bookmark-indicator {
+  position: absolute;
+  top: 73px;
+  left: 551px;
+  width: 98px;
+  height: 21px;
+  z-index: 1;
+}
+.iconlylight-outlinebookmark1 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  width: 117px;
+  z-index: 2;
+}
+.right-bookmark-icon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 649px;
+  height: 125px;
+}
+.you-have-completed {
+  margin: 0;
+  position: absolute;
+  top: 18px;
+  left: 145px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  width: 530px;
+  height: 144px;
+  z-index: 3;
+}
+.right-bookmark-icon-container-parent,
+.top-performing3 {
+  position: absolute;
+  top: 63px;
+  left: 30px;
+  width: 675px;
+  height: 162px;
+}
+.top-performing3 {
+  top: 632px;
+  left: 680px;
+  width: 705px;
+  height: 274px;
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-darkseagreen-100);
+  font-family: var(--font-open-sans);
+}
+@media screen and (max-width: 750px) {
+  .you-have-completed {
+    font-size: var(--font-size-13xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .you-have-completed {
+    font-size: var(--font-size-5xl);
+  }
+}

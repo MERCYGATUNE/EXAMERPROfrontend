@@ -4,6 +4,9 @@ import { Elements } from '@stripe/react-stripe-js';
 import SignInPage from './Pages/Signin/SignInPage';
 import SignUpPage from './Pages/Signup/SignUpPage';
 import SubscriptionPage from './Pages/SubscriptionPage/SubscriptionPage';
+import StudentDashboard from './Pages/Dashboard/Student/Home/StudentDashboard';
+import StudentDashboardExams from './Pages/Dashboard/Student/Exams/StudentDashboardExams';
+import StudentDashboardSettings from './Pages/Dashboard/Student/Settings/StudentDashboardSettings';
 import Home from './Pages/Home/Home';
 
 const stripePromise = loadStripe('your-publishable-key-here');
@@ -14,6 +17,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/student-dashboard" element={<StudentDashboard/>}/>
+          <Route path="/student-dashboard-exams" element={<StudentDashboardExams />} />
+          <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/subscription" element={
