@@ -7,6 +7,7 @@ import SubscriptionPage from './Pages/SubscriptionPage/SubscriptionPage';
 import StudentDashboard from './Pages/Dashboard/Student/Home/StudentDashboard';
 import StudentDashboardExams from './Pages/Dashboard/Student/Exams/StudentDashboardExams';
 import StudentDashboardSettings from './Pages/Dashboard/Student/Settings/StudentDashboardSettings';
+import ResetPassword from './Pages/ResetPassword/ResetPasswordPage';
 import Home from './Pages/Home/Home';
 
 // Ensure this is your actual public key from .env
@@ -21,6 +22,7 @@ function App() {
           <Route path="/student-dashboard" element={<StudentDashboard/>}/>
           <Route path="/student-dashboard-exams" element={<StudentDashboardExams />} />
           <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
+          <Route path="/reset-password/:token" element={<ResetPassword/>} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/subscription" element={

@@ -1,37 +1,35 @@
 import { useCallback, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import Email_icon from '../../assets/icons8-email-50.png';
 import Password_icon from '../../assets/icons8-password-50.png';
 import { TextField, Button } from "@mui/material";
 import Header1 from "../components/Header1";
 import { useNavigate } from "react-router-dom";
-import "./SignInPage.css";
+import "./ResetPasswordPage.css";
 
-const SignInPage = () => {
+const ResetPasswordPage = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const { token } = useParams();
+  const [newPassword, setNewPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5555/login", {
-        email,
-        password,
-      });
-      if (response.data.message === "Login successful") {
-        localStorage.setItem('userId', response.data.user_id); // Store user ID
-        navigate("/subscription");
-      }
-    } catch (error) {
-      setError("Invalid email or password");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await fetch(`http://127.0.0.1:5555/reset_password/${token}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ new_password: newPassword }),
+    });
+    if (response.ok){
+      navigate('/signin');
+      setMessage();
     }
+    const data = await response.json();
+    setMessage(data.message + 'Navigating to login...');
   };
-
-  const onDontHaveAnClick = useCallback(() => {
-    navigate("/signup");
-  }, [navigate]);
 
   return (
     <div className="sign-in-page">
@@ -40,24 +38,23 @@ const SignInPage = () => {
         <div className="login-form-container1">
           <div className="form2">
             <div className="form-text1">
-              <h2 className="sign-in">Sign in</h2>
+              <h2 className="sign-in">Reset Password</h2>
             </div>
             <div className="credentials-form-container">
               <div className="form3">
-                <form className="form4" onSubmit={handleSignIn}>
+                <form className="form4" onSubmit={handleSubmit}>
                   <div className="form-fields1">
                     <TextField
+                      type="password"
                       className="password1"
-                      placeholder="Email address"
+                      placeholder="Password"
                       variant="outlined"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <img
                             width="20px"
                             height="20px"
-                            src={Email_icon}
+                            src={Password_icon}
                             alt="email-icon"
                           />
                         ),
@@ -75,10 +72,10 @@ const SignInPage = () => {
                     <TextField
                       type="password"
                       className="password1"
-                      placeholder="Password"
+                      placeholder=" Confirm Password"
                       variant="outlined"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <img
@@ -116,19 +113,12 @@ const SignInPage = () => {
                       height: 52,
                     }}
                   >
-                    Sign in
+                    Reset Password
                   </Button>
-                  {error && <div style={{ color: "red" }}>{error}</div>}
+                    {message && <p>{message}</p>}
                 </form>
               </div>
               <div className="credentials-form-container-child" />
-              <div
-                className="dont-have-an-container"
-                onClick={onDontHaveAnClick}
-              >
-                <span>{`Don’t have an account yet? `}</span>
-                <span className="sign-up">Sign up</span>
-              </div>
             </div>
           </div>
         </div>
@@ -151,4 +141,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default ResetPasswordPage;
