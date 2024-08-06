@@ -52,7 +52,7 @@ const SignUpPage = () => {
               <form className="form1" onSubmit={handleSignUp}>
                 <div className="form-fields">
                   <TextField
-                    className="email"
+                    className="password"
                     placeholder="Email address"
                     variant="outlined"
                     value={email}
