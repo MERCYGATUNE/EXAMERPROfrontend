@@ -20,11 +20,17 @@ const SignInPage = () => {
         email,
         password,
       });
-      if (response.data.message === "Login successful") {
+
+      console.log(response)
+
+      if (response.data.message === "Login successful" && response.data.user_id) {
         localStorage.setItem('userId', response.data.user_id); // Store user ID
         navigate("/subscription");
+      } else {
+        setError("Login failed: Invalid response from server");
       }
     } catch (error) {
+      console.error("Error during login:", error);
       setError("Invalid email or password");
     }
   };

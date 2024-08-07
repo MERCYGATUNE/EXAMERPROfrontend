@@ -1,0 +1,111 @@
+.delete-history {
+    margin: 0;
+    flex: 1;
+    position: relative;
+    font-size: inherit;
+    font-weight: 600;
+    font-family: inherit;
+    display: inline-block;
+    max-width: 100%;
+  }
+  .confirmation-message {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-3xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .type-i-want {
+    align-self: stretch;
+    height: 49px;
+    position: relative;
+    font-size: var(--font-size-5xl);
+    font-weight: 600;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .history-confirmation {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .input-type {
+    border: 0;
+    background-color: transparent;
+    height: 80px;
+    flex: 1;
+    font-family: var(--font-open-sans);
+    font-weight: 600;
+    font-size: var(--font-size-5xl);
+    color: var(--color-black);
+    max-width: 100%;
+  }
+  .input-container,
+  .popup-container {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .input-container {
+    flex-direction: row;
+    padding: 0 var(--padding-7xl);
+    box-sizing: border-box;
+  }
+  .popup-container {
+    flex-direction: column;
+    gap: var(--gap-xs);
+    text-align: center;
+    font-size: var(--font-size-45xl);
+    color: var(--color-white);
+    font-family: var(--font-open-sans);
+  }
+  .delete-button-container-child {
+    height: 73px;
+    width: 389px;
+    max-width: 100%;
+  }
+  .delete-button-container,
+  .delete-history-popup {
+    width: 613px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 100%;
+  }
+  .delete-history-popup {
+    width: 748px;
+    position: relative;
+    background-color: var(--color-red);
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--padding-16xl) var(--padding-43xl) var(--padding-56xl);
+    box-sizing: border-box;
+    gap: var(--gap-51xl);
+    line-height: normal;
+    letter-spacing: normal;
+    max-height: 100%;
+  }
+  @media screen and (max-width: 450px) {
+    .type-i-want {
+      font-size: var(--font-size-lgi);
+    }
+  }
+  @media screen and (max-width: 374px) {
+    .delete-history-popup {
+      gap: var(--gap-16xl);
+      padding-left: var(--padding-xl);
+      padding-right: var(--padding-xl);
+      box-sizing: border-box;
+    }
+  }
+  

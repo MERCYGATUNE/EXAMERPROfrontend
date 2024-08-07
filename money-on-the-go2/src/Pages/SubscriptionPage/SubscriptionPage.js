@@ -89,7 +89,7 @@ const SubscriptionPage = () => {
       }
     } catch (error) {
       console.error('Error processing payment:', error);
-      setError('An error occurred while processing the payment.');
+      setError('An error occurred while processing the payment.😭');
     } finally {
       setLoading(false);
     }

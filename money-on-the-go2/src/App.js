@@ -7,6 +7,10 @@ import SubscriptionPage from './Pages/SubscriptionPage/SubscriptionPage';
 import StudentDashboard from './Pages/Dashboard/Student/Home/StudentDashboard';
 import StudentDashboardExams from './Pages/Dashboard/Student/Exams/StudentDashboardExams';
 import StudentDashboardSettings from './Pages/Dashboard/Student/Settings/StudentDashboardSettings';
+import ExaminerDashboardExams from './Pages/Dashboard/Examiner/Exams/ExaminerDashboardExams';
+import ExaminerDashboardSettings from './Pages/Dashboard/Examiner/Settings/ExaminerDashboardSettings';
+import ExaminerDashboardSubmissions from './Pages/Dashboard/Examiner/Submissions/ExaminerDashboardSubmissions';
+import Examiner from './Pages/Dashboard/Examiner/Home/Examiner';
 import ResetPassword from './Pages/ResetPassword/ResetPasswordPage';
 import Home from './Pages/Home/Home';
 
@@ -22,6 +26,10 @@ function App() {
           <Route path="/student-dashboard" element={<StudentDashboard/>}/>
           <Route path="/student-dashboard-exams" element={<StudentDashboardExams />} />
           <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
+          <Route path="/examiner-dashboard-exams" element={<ExaminerDashboardExams />} />
+          <Route path="/examiner-dashboard-settings" element={<ExaminerDashboardSettings />} />
+          <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
+          <Route path="/examiner" element={<Examiner />} />
           <Route path="/reset-password/:token" element={<ResetPassword/>} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
