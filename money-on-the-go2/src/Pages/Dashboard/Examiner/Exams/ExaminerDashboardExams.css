@@ -1,0 +1,103 @@
+.exam-list {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-2xl);
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  transform: rotate(0deg);
+}
+.exam-list:hover {
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-2xl);
+  align-items: flex-end;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  max-width: 100%;
+}
+.content33 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-24xl) 0px 0px;
+  box-sizing: border-box;
+  max-width: calc(100% - 319px);
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.content33:hover {
+  display: flex;
+  flex: 1;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  padding: var(--padding-24xl) 0px 0px;
+  box-sizing: border-box;
+  max-width: calc(100% - 319px);
+}
+.examiner-dashboard-exams {
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-aliceblue);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px var(--padding-19xl) 0px 0px;
+  box-sizing: border-box;
+  gap: var(--gap-27xl);
+  line-height: normal;
+  letter-spacing: normal;
+  height: auto;
+}
+.examiner-dashboard-exams:hover {
+  background-color: var(--color-aliceblue);
+  display: flex;
+  width: 1440px;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-27xl);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px var(--padding-19xl) 0px 0px;
+  box-sizing: border-box;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+@media screen and (max-width: 1000px) {
+  .content33 {
+    padding-top: var(--padding-9xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .examiner-dashboard-exams {
+    padding-left: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 725px) {
+  .content33 {
+    padding-top: var(--padding-xl);
+    box-sizing: border-box;
+  }
+
+  .examiner-dashboard-exams {
+    gap: var(--gap-4xl);
+  }
+}

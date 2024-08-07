@@ -1,0 +1,215 @@
+.examerpro2 {
+  text-decoration: none;
+  position: relative;
+  font-weight: 700;
+  color: inherit;
+  display: flex;
+  white-space: nowrap;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  z-index: 1;
+}
+.examerpro2:hover {
+  font-weight: 700;
+  font-family: var(--font-ubuntu);
+  font-size: var(--font-size-5xl);
+  text-align: left;
+  color: var(--color-black);
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  white-space: nowrap;
+}
+.examerpro-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-16xl) 0px 0px;
+  box-sizing: border-box;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.examerpro-wrapper:hover {
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  padding: var(--padding-16xl) 0px 0px;
+  box-sizing: border-box;
+}
+.allura-avatar2 {
+  position: absolute;
+  top: 0.1px;
+  left: 1.7px;
+  border-radius: 9.59px;
+  background-color: var(--color-royalblue);
+  width: 43.1px;
+  height: 40.3px;
+  display: flex;
+  z-index: 1;
+}
+.allura-avatar2:hover {
+  background-color: var(--color-royalblue);
+  display: flex;
+  width: 43.1px;
+  height: 40.3px;
+  border-radius: 9.59px;
+}
+.allura-avatar-icon4 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 9.59px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  z-index: 2;
+}
+.allura-avatar-icon4:hover {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 9.59px;
+}
+.allura-avatar-parent {
+  height: 40.4px;
+  width: 48px;
+  position: relative;
+  display: flex;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+}
+.allura-avatar-parent:hover {
+  display: flex;
+  width: 48px;
+  height: 40.4px;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+}
+.ayo4 {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: inherit;
+  display: flex;
+  min-width: 27.6;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  z-index: 1;
+}
+.ayo4:hover {
+  font-weight: 600;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-mini);
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: var(--color-darkslategray);
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  min-width: 27.6;
+}
+.user-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-smi-1) 0px 0px;
+  box-sizing: border-box;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.user-name-container:hover {
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  padding: var(--padding-smi-1) 0px 0px;
+  box-sizing: border-box;
+}
+.profile2 {
+  width: 186px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-aliceblue);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs-9) var(--padding-smi) var(--padding-8xs-7);
+  box-sizing: border-box;
+  gap: var(--gap-2xs-2);
+  height: auto;
+  z-index: 1;
+  font-size: var(--font-size-mini);
+  color: var(--color-darkslategray);
+  font-family: var(--font-open-sans);
+}
+.profile2:hover {
+  background-color: var(--color-aliceblue);
+  display: flex;
+  width: 186px;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-2xs-2);
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: var(--br-3xs);
+  padding: var(--padding-8xs-9) var(--padding-smi) var(--padding-8xs-7);
+  box-sizing: border-box;
+}
+.frame-header {
+  position: absolute;
+  top: 43px;
+  left: 57px;
+  width: 1338px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  max-width: 100%;
+  height: auto;
+  transform: rotate(0deg);
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-ubuntu);
+}
+.frame-header:hover {
+  display: flex;
+  width: 1338px;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-xl);
+  align-items: flex-start;
+  justify-content: space-between;
+  transform: rotate(0deg);
+  max-width: 100%;
+}

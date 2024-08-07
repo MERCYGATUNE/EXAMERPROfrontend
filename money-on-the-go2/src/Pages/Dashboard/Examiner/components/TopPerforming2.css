@@ -1,0 +1,105 @@
+.group-icon {
+  height: 100px;
+  width: 85px;
+  position: relative;
+  display: flex;
+  z-index: 1;
+}
+.group-icon:hover {
+  display: flex;
+  width: 85px;
+  height: 100px;
+}
+.top-performing-child {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0px var(--padding-2xl);
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.top-performing-child:hover {
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-end;
+  transform: rotate(0deg);
+  padding: 0px var(--padding-2xl);
+  box-sizing: border-box;
+}
+.view-all-your {
+  margin: 0;
+  width: 235px;
+  height: 144px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.view-all-your:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-21xl);
+  text-align: left;
+  color: var(--color-darkseagreen-100);
+  display: flex;
+  width: 235px;
+  height: 144px;
+}
+.top-performing33 {
+  position: absolute;
+  top: 632px;
+  left: 353px;
+  border-radius: var(--br-xl);
+  background-color: var(--color-honeydew);
+  width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-sm) var(--padding-mid) var(--padding-mini);
+  box-sizing: border-box;
+  height: auto;
+  gap: var(--gap-0);
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-darkseagreen-100);
+  font-family: var(--font-open-sans);
+}
+.top-performing33:hover {
+  background-color: var(--color-honeydew);
+  display: flex;
+  width: 290px;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: var(--br-xl);
+  padding: var(--padding-sm) var(--padding-mid) var(--padding-mini);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 750px) {
+  .view-all-your {
+    font-size: var(--font-size-13xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .view-all-your {
+    font-size: var(--font-size-5xl);
+  }
+}
