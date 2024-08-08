@@ -3,6 +3,9 @@ import AlluraAvatar from '../../../../assets/allura-avatar1@2x.png'
 import "./ExaminerDashboardSubmissions.css";
 
 const ExaminerDashboardSubmissions = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
+  const email = user.email
   return (
     <div className="examiner-dashboard-submissions">
       <LeftBar5 />
@@ -46,7 +49,7 @@ const ExaminerDashboardSubmissions = () => {
                           />
                         </div>
                         <div className="profile-name">
-                          <a className="ayo2">Ayo</a>
+                          <a className="ayo2">{username}</a>
                         </div>
                       </div>
                     </div>

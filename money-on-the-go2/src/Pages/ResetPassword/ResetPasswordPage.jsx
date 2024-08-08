@@ -1,7 +1,5 @@
-import { useCallback, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import Email_icon from '../../assets/icons8-email-50.png';
 import Password_icon from '../../assets/icons8-password-50.png';
 import { TextField, Button } from "@mui/material";
 import Header1 from "../components/Header1";
@@ -11,11 +9,16 @@ import "./ResetPasswordPage.css";
 const ResetPasswordPage = () => {
   const navigate = useNavigate();
   const { token } = useParams();
+  const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (password!== newPassword) {
+      setMessage('Passwords do not match');
+      return;
+    }
     const response = await fetch(`http://127.0.0.1:5555/reset_password/${token}`, {
       method: 'POST',
       headers: {
@@ -49,6 +52,8 @@ const ResetPasswordPage = () => {
                       className="password1"
                       placeholder="Password"
                       variant="outlined"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <img

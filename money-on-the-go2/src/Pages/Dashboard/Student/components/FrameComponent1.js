@@ -3,6 +3,8 @@ import "./FrameComponent1.css";
 import StudentProfilePicture from '../../../../assets/icons8-graduate-48.png'
 
 const FrameComponent1 = ({ className = "" }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
   return (
     <header className={`frame-container ${className}`}>
       <div className="examerpro-wrapper">
@@ -20,7 +22,7 @@ const FrameComponent1 = ({ className = "" }) => {
           />
         </div>
         <div className="user-name-container1">
-          <a className="ayo3">Ayo</a>
+          <a className="ayo3">{username}</a>
         </div>
       </div>
     </header>

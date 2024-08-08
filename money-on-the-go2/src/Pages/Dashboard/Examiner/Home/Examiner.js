@@ -9,6 +9,8 @@ import TopPerforming3 from "../components/TopPerforming3";
 import "./Examiner.css";
 
 const Examiner = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
   return (
     <div className="examiner">
       <FrameComponent1
@@ -22,7 +24,7 @@ const Examiner = () => {
         src={CoolKidsAvatar}
       />
       <section className="welcome-back-ayo-container">
-        <h2 className="welcome-back-ayo1">Welcome back, Ayo!👋</h2>
+        <h2 className="welcome-back-ayo1">Welcome back, {username}!👋</h2>
       </section>
       <TopPerforming4 />
       <div className="frame-parent2">

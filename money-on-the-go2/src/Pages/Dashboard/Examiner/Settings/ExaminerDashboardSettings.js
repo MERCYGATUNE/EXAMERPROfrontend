@@ -65,6 +65,10 @@ const ExaminerDashboardSettings = () => {
     setResetPasswordPopupExaminerOpen(false);
   }, []);
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
+  const email = user.email
+
   return (
     <>
       <div className="examiner-dashboard-settings">
@@ -84,8 +88,8 @@ const ExaminerDashboardSettings = () => {
             />
           </div>
         </div>
-        <h1 className="ayo1">Ayo</h1>
-        <div className="ayogmailcom1">ayo@gmail.com</div>
+        <h1 className="ayo1">{username}</h1>
+        <div className="ayogmailcom1">{email}</div>
         <div className="danger-zone1">DANGER ZONE</div>
         <footer className="group-footer">
           <div
