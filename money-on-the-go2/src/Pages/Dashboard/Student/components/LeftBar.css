@@ -1,0 +1,234 @@
+.left-bar-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .examerpro1,
+  .examiner2 {
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+    color: inherit;
+    z-index: 1;
+  }
+  .examiner2 {
+    letter-spacing: 0.37em;
+  }
+  .examerpro1{
+    color: black !important;
+  }
+  .documents-child,
+  .exams-indicator {
+    align-self: stretch;
+    position: relative;
+  }
+  .documents-child {
+    width: 270px;
+    background-color: var(--color-aliceblue);
+    display: none;
+  }
+  .exams-indicator {
+    width: 6px;
+    background-color: var(--color-royalblue);
+    z-index: 1;
+  }
+  .examiner-container {
+    flex-direction: row;
+    padding: 0 0 0 var(--padding-10xs);
+    font-size: var(--font-size-xl);
+    color: var(--color-royalblue);
+    font-family: var(--font-open-sans);
+  }
+  .exam-pro-container,
+  .examiner-container,
+  .side-bar-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .exam-pro-container {
+    flex-direction: column;
+    gap: var(--gap-3xs);
+  }
+  .side-bar-top {
+    flex-direction: row;
+    padding: 0 var(--padding-38xl);
+    font-size: var(--font-size-5xl);
+    font-family: var(--font-ubuntu);
+  }
+  .examiner3 {
+    text-decoration: none;
+    position: relative;
+    letter-spacing: 0.37em;
+    font-weight: 700;
+    color: inherit;
+    z-index: 1;
+  }
+  .settings-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-38xl);
+    color: var(--color-royalblue);
+  }
+  .home4 {
+    align-self: stretch;
+    flex: 1;
+    z-index: 1;
+  }
+  .iconlylight-outlinedocument4 {
+    height: 27.4px;
+    width: 25px;
+    position: relative;
+    min-height: 27px;
+  }
+  .exams2 {
+    position: relative;
+    display: inline-block;
+    min-width: 65px;
+  }
+  .documents2 {
+    flex-direction: row;
+    gap: var(--gap-8xs);
+    cursor: pointer;
+    z-index: 1;
+  }
+  .documents2,
+  .navigation-links,
+  .settings-icon-container1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .settings-icon-container1 {
+    flex-direction: row;
+    padding: 0 var(--padding-61xl);
+  }
+  .navigation-links {
+    align-self: stretch;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--gap-26xl);
+  }
+  .iconlylight-outlinesetting1 {
+    width: 24px;
+    height: 25.8px;
+    position: relative;
+  }
+  .iconlylight-outlinesetting-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-12xs) 0 0;
+  }
+  .settings4 {
+    position: relative;
+    display: inline-block;
+    min-width: 81px;
+  }
+  .settings3 {
+    flex-direction: row;
+    gap: var(--gap-3xs);
+    cursor: pointer;
+    z-index: 1;
+  }
+  .settings-wrapper,
+  .settings3,
+  .side-bar-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .settings-wrapper {
+    flex-direction: row;
+    padding: 0 var(--padding-56xl) 0 var(--padding-61xl);
+  }
+  .side-bar-content {
+    position: absolute;
+    top: 117px;
+    left: 0;
+    width: 100%;
+    height: 301px;
+    flex-direction: column;
+    gap: var(--gap-37xl-8);
+  }
+  .iconlylight-outlinelogout2 {
+    width: 24px;
+    height: 23.4px;
+    position: relative;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .iconlylight-outlinelogout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-11xs) 0 0;
+  }
+  .sign-out2 {
+    position: relative;
+    display: inline-block;
+    min-width: 85px;
+    z-index: 1;
+  }
+  .logout-icon-container,
+  .logout-link {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .logout-icon-container {
+    padding: 0 var(--padding-xl) 0 0;
+    gap: var(--gap-3xs);
+  }
+  .logout-link {
+    position: absolute;
+    top: 942px;
+    left: 80px;
+    width: 190px;
+    color: var(--color-indianred);
+  }
+  .left-bar2 {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+    background-color: var(--color-white);
+    width: 270px;
+    z-index: 1;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray);
+    font-family: var(--font-open-sans);
+  }
+  @media screen and (max-width: 450px) {
+    .examerpro1 {
+      font-size: var(--font-size-lgi);
+    }
+    .examiner2 {
+      font-size: var(--font-size-base);
+    }
+    .side-bar-top {
+      padding-left: var(--padding-xl);
+      padding-right: var(--padding-xl);
+      box-sizing: border-box;
+    }
+    .examiner3,
+    .exams2,
+    .settings4,
+    .sign-out2 {
+      font-size: var(--font-size-base);
+    }
+  }
+  

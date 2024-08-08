@@ -1,19 +1,55 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import axios from "axios";
 import Email_icon from '../../assets/icons8-email-50.png';
 import Password_icon from '../../assets/icons8-password-50.png';
-import {
-  TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
-  Button,
-} from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import Header1 from "../components/Header1";
 import { useNavigate } from "react-router-dom";
 import "./SignInPage.css";
+// import AuthContext from "../components/AuthContext";
 
 const SignInPage = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:5555/login", {
+        email,
+        password,
+      });
+
+      console.log(response.data)
+
+      if (response.data.message === "Login successful" && response.data.user_id) {
+        localStorage.setItem('userId', response.data.user_id); // Store user ID
+        localStorage.setItem('user', JSON.stringify(response.data)); // Store user object
+    
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user && user.role) { // Check if user and user.role exist
+          if (user.role === "examiner") {
+            navigate("/examiner");
+          } else if (user.role === "student") {
+            navigate("/student-dashboard");
+          } else if (user.role === "admin") {
+            navigate("/admin");
+          } else if (user.role === "user") {
+            navigate("/subscription");
+          }
+        } else {
+          setError("Login failed: User role is not defined");
+        }
+      } else {
+        setError("Login failed: Invalid response from server");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      setError("Invalid email or password");
+    }
+  };
 
   const onDontHaveAnClick = useCallback(() => {
     navigate("/signup");
@@ -30,18 +66,21 @@ const SignInPage = () => {
             </div>
             <div className="credentials-form-container">
               <div className="form3">
-                <form className="form4">
+                <form className="form4" onSubmit={handleSignIn}>
                   <div className="form-fields1">
                     <TextField
-                      className="email1"
+                      className="password1"
                       placeholder="Email address"
                       variant="outlined"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <img
                             width="20px"
                             height="20px"
                             src={Email_icon}
+                            alt="email-icon"
                           />
                         ),
                       }}
@@ -60,12 +99,15 @@ const SignInPage = () => {
                       className="password1"
                       placeholder="Password"
                       variant="outlined"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <img
                             width="20px"
                             height="20px"
                             src={Password_icon}
+                            alt="password-icon"
                           />
                         ),
                       }}
@@ -82,6 +124,7 @@ const SignInPage = () => {
                   </div>
                   <Button
                     className="search-flights-button1"
+                    type="submit"
                     disableElevation
                     variant="contained"
                     sx={{
@@ -97,6 +140,7 @@ const SignInPage = () => {
                   >
                     Sign in
                   </Button>
+                  {error && <div style={{ color: "red" }}>{error}</div>}
                 </form>
               </div>
               <div className="credentials-form-container-child" />

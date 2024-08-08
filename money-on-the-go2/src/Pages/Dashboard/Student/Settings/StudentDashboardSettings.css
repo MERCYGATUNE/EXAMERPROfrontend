@@ -1,0 +1,156 @@
+.student-dashboard-settings-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-aliceblue);
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .avatar-background {
+    position: absolute;
+    width: calc(100% - 17.6px);
+    top: 0;
+    right: 8.6px;
+    left: 9px;
+    border-radius: 50%;
+    background-color: var(--color-royalblue);
+    height: 150px;
+  }
+  .allura-avatar-icon {
+    position: absolute;
+    top: 7.2px;
+    left: 0;
+    border-radius: 9.59px;
+    width: 170px;
+    height: 115px;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .user-image {
+    height: 150px;
+    flex: 1;
+    position: relative;
+  }
+  .user-image-wrapper {
+    position: absolute;
+    top: 70px;
+    left: 763px;
+    width: 172px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 1;
+  }
+  .ayo {
+    margin: 0;
+    top: 213px;
+    left: 790px;
+    font-size: var(--font-size-45xl);
+    font-family: inherit;
+    color: var(--color-black);
+    text-align: left;
+    width: 118.4px;
+    height: 77px;
+    min-width: 118.4px;
+  }
+  .ayo,
+  .ayogmailcom,
+  .danger-zone {
+    position: absolute;
+    font-weight: 600;
+    display: inline-block;
+    z-index: 1;
+  }
+  .ayogmailcom {
+    top: 305px;
+    left: 735px;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    width: 231.1px;
+    height: 44.3px;
+    white-space: nowrap;
+  }
+  .danger-zone {
+    top: 623px;
+    left: 627px;
+    letter-spacing: 1.03em;
+    color: var(--color-red);
+    width: 445px;
+    height: 44px;
+  }
+  .frame-child {
+    height: 67px;
+    width: 596px;
+    position: relative;
+    border-radius: var(--br-xl);
+    background-color: var(--color-royalblue);
+    display: none;
+    max-width: 100%;
+  }
+  .change-your-username {
+    width: 440px;
+    position: relative;
+    letter-spacing: 0.42em;
+    font-weight: 600;
+    display: inline-block;
+    flex-shrink: 0;
+    max-width: 100%;
+    z-index: 1;
+  }
+  .rectangle-container,
+  .rectangle-group,
+  .rectangle-parent {
+    position: absolute;
+    top: 338px;
+    left: 546px;
+    border-radius: var(--br-xl);
+    background-color: var(--color-royalblue);
+    width: 596px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-mini) var(--padding-27xl);
+    box-sizing: border-box;
+    min-height: 67px;
+    max-width: 100%;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .rectangle-container,
+  .rectangle-group {
+    top: 424px;
+  }
+  .rectangle-container {
+    top: 512px;
+  }
+  .student-dashboard-settings {
+    width: 100%;
+    height: 1024px;
+    position: relative;
+    background-color: var(--color-aliceblue);
+    overflow: hidden;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: var(--font-size-xl);
+    color: var(--color-snow);
+    font-family: var(--font-open-sans);
+  }
+  @media screen and (max-width: 767px) {
+    .ayo {
+      font-size: 51px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .ayo {
+      font-size: var(--font-size-19xl);
+    }
+    .change-your-username,
+    .danger-zone {
+      font-size: var(--font-size-base);
+    }
+  }
+  

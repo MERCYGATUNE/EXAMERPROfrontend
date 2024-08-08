@@ -1,0 +1,51 @@
+/* SubscriptionPage.css */
+.subscription-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.subscription-header h1 {
+  text-align: center;
+}
+
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.subscription-options button {
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.subscription-options button.active {
+  background-color: #0400c2;
+  color: #fff;
+}
+
+.stripe-element {
+  margin: 20px 0;
+}
+
+.submit-button {
+  padding: 10px;
+  border: none;
+  background-color: #0400c2;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.submit-button:disabled {
+  background-color: #c0c0c0;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}

@@ -1,0 +1,152 @@
+.left-bar-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .iconlyboldhome {
+    height: 26.3px;
+    width: 25px;
+    position: relative;
+  }
+  .home1 {
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+    color: inherit;
+    display: inline-block;
+    min-width: 60px;
+  }
+  .home,
+  .logout-entry {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .home {
+    justify-content: flex-start;
+    padding: 0 0 0 var(--padding-xl);
+    gap: var(--gap-3xs);
+    cursor: pointer;
+    z-index: 1;
+  }
+  .logout-entry {
+    position: absolute;
+    top: 217px;
+    left: 0;
+    width: 175px;
+    justify-content: flex-end;
+  }
+  .iconlylight-outlinedocument {
+    height: 27.4px;
+    width: 25px;
+    position: relative;
+    min-height: 27px;
+  }
+  .exams {
+    position: relative;
+    display: inline-block;
+    min-width: 65px;
+  }
+  .documents,
+  .logout-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .documents {
+    gap: var(--gap-8xs);
+    flex-shrink: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .logout-button {
+    padding: 0 var(--padding-61xl);
+  }
+  .settings {
+    align-self: stretch;
+    flex: 1;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .logout-button-parent {
+    position: absolute;
+    top: 306px;
+    left: 0;
+    width: 100%;
+    height: 574px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-425xl);
+    box-sizing: border-box;
+    gap: var(--gap-22xl-6);
+  }
+  .iconlylight-outlinelogout {
+    width: 24px;
+    height: 23.4px;
+    position: relative;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-11xs) 0 0;
+  }
+  .sign-out {
+    position: relative;
+    display: inline-block;
+    min-width: 85px;
+    z-index: 1;
+  }
+  .logout-button-wrapper,
+  .logout-button1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .logout-button1 {
+    justify-content: flex-start;
+    padding: 0 0 0 var(--padding-xl);
+    gap: var(--gap-3xs);
+  }
+  .logout-button-wrapper {
+    position: absolute;
+    top: 942px;
+    left: 0;
+    width: 199px;
+    justify-content: flex-end;
+    color: var(--color-indianred);
+  }
+  .left-bar {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+    background-color: var(--color-white);
+    width: 270px;
+    z-index: 1;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray);
+    font-family: var(--font-open-sans);
+  }
+  @media screen and (max-width: 450px) {
+    .exams,
+    .home1,
+    .sign-out {
+      font-size: var(--font-size-base);
+    }
+  }
+  

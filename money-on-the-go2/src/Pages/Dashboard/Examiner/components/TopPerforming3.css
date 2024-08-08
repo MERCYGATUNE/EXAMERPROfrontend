@@ -1,0 +1,228 @@
+.view-all-student {
+  margin: 0;
+  height: 144px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-21xl);
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--color-peru);
+  display: flex;
+  z-index: 2;
+}
+.view-all-student:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-21xl);
+  text-align: left;
+  color: var(--color-peru);
+  display: flex;
+  flex: 1;
+  height: 144px;
+}
+.h1 {
+  margin: 0 !important;
+  height: 108.4px;
+  width: 68px;
+  position: absolute;
+  top: -95.01px;
+  right: 8.12px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  transform: rotate(16deg);
+  transform-origin: 0 0;
+  z-index: 3;
+}
+.h1:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-77xl);
+  text-align: left;
+  color: var(--color-black);
+  display: flex;
+  width: 68px;
+  height: 108.4px;
+  transform: rotate(16deg);
+}
+.h11 {
+  margin: 0 !important;
+  height: 107px;
+  width: 88px;
+  position: absolute;
+  top: -75.99px;
+  right: -69.69px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  transform: rotate(32deg);
+  transform-origin: 0 0;
+  z-index: 4;
+}
+.h11:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-77xl);
+  text-align: left;
+  color: var(--color-black);
+  display: flex;
+  width: 88px;
+  height: 107px;
+  transform: rotate(32deg);
+}
+.h12 {
+  margin: 0 !important;
+  height: 108.4px;
+  width: 68px;
+  position: absolute;
+  top: -99.01px;
+  right: 11.12px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--color-gold);
+  display: flex;
+  transform: rotate(16deg);
+  transform-origin: 0 0;
+  z-index: 5;
+}
+.h12:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-77xl);
+  text-align: left;
+  color: var(--color-gold);
+  display: flex;
+  width: 68px;
+  height: 108.4px;
+  transform: rotate(16deg);
+}
+.h13 {
+  margin: 0 !important;
+  height: 107px;
+  width: 88px;
+  position: absolute;
+  top: -79.99px;
+  right: -65.69px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--color-gold);
+  display: flex;
+  transform: rotate(32deg);
+  transform-origin: 0 0;
+  z-index: 6;
+}
+.h13:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-77xl);
+  text-align: left;
+  color: var(--color-gold);
+  display: flex;
+  width: 88px;
+  height: 107px;
+  transform: rotate(32deg);
+}
+.view-all-student-submissions-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  width: auto;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.view-all-student-submissions-parent:hover {
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+}
+.top-performing4 {
+  position: absolute;
+  top: 328px;
+  left: 1085px;
+  border-radius: var(--br-xl);
+  background-color: var(--color-lightgoldenrodyellow);
+  width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-57xl) var(--padding-3xs) var(--padding-34xl)
+    var(--padding-14xl);
+  box-sizing: border-box;
+  height: auto;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-77xl);
+  color: var(--color-black);
+  font-family: var(--font-open-sans);
+}
+.top-performing4:hover {
+  background-color: var(--color-lightgoldenrodyellow);
+  display: flex;
+  width: 290px;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: var(--br-xl);
+  padding: var(--padding-57xl) var(--padding-3xs) var(--padding-34xl)
+    var(--padding-14xl);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 750px) {
+  .view-all-student {
+    font-size: var(--font-size-13xl);
+  }
+
+  .h1 {
+    font-size: var(--font-size-29xl);
+  }
+
+  .h11 {
+    font-size: var(--font-size-29xl);
+  }
+
+  .h12 {
+    font-size: var(--font-size-29xl);
+  }
+
+  .h13 {
+    font-size: var(--font-size-29xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .view-all-student {
+    font-size: var(--font-size-5xl);
+  }
+
+  .h1 {
+    font-size: var(--font-size-10xl);
+  }
+
+  .h11 {
+    font-size: var(--font-size-10xl);
+  }
+
+  .h12 {
+    font-size: var(--font-size-10xl);
+  }
+
+  .h13 {
+    font-size: var(--font-size-10xl);
+  }
+}
