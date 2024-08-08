@@ -6,6 +6,7 @@ import { TextField, Button } from "@mui/material";
 import Header1 from "../components/Header1";
 import { useNavigate } from "react-router-dom";
 import "./SignInPage.css";
+// import AuthContext from "../components/AuthContext";
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -21,11 +22,26 @@ const SignInPage = () => {
         password,
       });
 
-      console.log(response)
+      console.log(response.data)
 
       if (response.data.message === "Login successful" && response.data.user_id) {
         localStorage.setItem('userId', response.data.user_id); // Store user ID
-        navigate("/subscription");
+        localStorage.setItem('user', JSON.stringify(response.data)); // Store user object
+    
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user && user.role) { // Check if user and user.role exist
+          if (user.role === "examiner") {
+            navigate("/examiner");
+          } else if (user.role === "student") {
+            navigate("/student-dashboard");
+          } else if (user.role === "admin") {
+            navigate("/admin");
+          } else if (user.role === "user") {
+            navigate("/subscription");
+          }
+        } else {
+          setError("Login failed: User role is not defined");
+        }
       } else {
         setError("Login failed: Invalid response from server");
       }

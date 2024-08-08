@@ -83,13 +83,27 @@ const SubscriptionPage = () => {
 
       if (response.data.success) {
         alert('Payment successful!');
-        navigate('/student-dashboard'); // Redirect to Student Dashboard
+
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (amount === 65) {
+          user.role = 'student';
+        } else if (amount === 130) {
+          user.role = 'examiner';
+        }
+        localStorage.setItem('user', JSON.stringify(user));
+        
+        if (user.role === 'examiner') {
+          navigate('/examiner');
+        }
+        if (user.role === 'student') {
+          navigate('/student-dashboard');
+        }
       } else {
         setError('Payment failed: ' + response.data.error);
       }
     } catch (error) {
       console.error('Error processing payment:', error);
-      setError('An error occurred while processing the payment.😭');
+      setError('An error occurred while processing the payment.');
     } finally {
       setLoading(false);
     }

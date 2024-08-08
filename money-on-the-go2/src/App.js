@@ -10,6 +10,8 @@ import StudentDashboardSettings from './Pages/Dashboard/Student/Settings/Student
 import ExaminerDashboardExams from './Pages/Dashboard/Examiner/Exams/ExaminerDashboardExams';
 import ExaminerDashboardSettings from './Pages/Dashboard/Examiner/Settings/ExaminerDashboardSettings';
 import ExaminerDashboardSubmissions from './Pages/Dashboard/Examiner/Submissions/ExaminerDashboardSubmissions';
+import Unauthorized from './Pages/Unauthorized/Unauthorized';
+import ProtectedRoute from './Pages/components/ProtectedRoute';
 import Examiner from './Pages/Dashboard/Examiner/Home/Examiner';
 import ResetPassword from './Pages/ResetPassword/ResetPasswordPage';
 import Home from './Pages/Home/Home';
@@ -23,16 +25,31 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/student-dashboard" element={<StudentDashboard/>}/>
-          <Route path="/student-dashboard-exams" element={<StudentDashboardExams />} />
-          <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
-          <Route path="/examiner-dashboard-exams" element={<ExaminerDashboardExams />} />
-          <Route path="/examiner-dashboard-settings" element={<ExaminerDashboardSettings />} />
-          <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
-          <Route path="/examiner" element={<Examiner />} />
-          <Route path="/reset-password/:token" element={<ResetPassword/>} />
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+            <Route path="/student-dashboard" element={<StudentDashboard />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+            <Route path="/student-dashboard-exams" element={<StudentDashboardExams />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+            <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
+            <Route path="/examiner" element={<Examiner />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
+            <Route path="/examiner-dashboard-exams" element={<ExaminerDashboardExams />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
+            <Route path="/examiner-dashboard-settings" element={<ExaminerDashboardSettings />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
+            <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
+          </Route>
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
+          <Route path='/unauthorized' element={<Unauthorized />} />
           <Route path="/subscription" element={
             <Elements stripe={stripePromise}>
               <SubscriptionPage />
