@@ -7,6 +7,8 @@ import ProgressTickGif from '../../../../assets/bouncy-completed-checklist-form-
 import "./StudentDashboard.css";
 
 const StudentDashboard = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
   return (
     <div className="student-dashboard">
       <div className="student-dashboard-child" />
@@ -14,7 +16,7 @@ const StudentDashboard = () => {
       <img className="cool-kids-avatar" alt="" src={CoolKidsAvatar} />
       <section className="frame-section">
         <div className="frame-child6" />
-        <h2 className="welcome-back-ayo">Welcome back, Ayo!👋</h2>
+        <h2 className="welcome-back-ayo">Welcome back, {username}!👋</h2>
       </section>
       <TopPerforming />
       <TopPerforming1 />

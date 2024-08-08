@@ -1,8 +1,28 @@
 import { Button, TextField} from "@mui/material";
 import PropTypes from "prop-types";
 import "./ChangeUsername.css";
+import { useState } from "react";
 
 const ChangeUsernamePopup = ({ className = "", onClose }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const user_id = user.user_id;
+  const username = user.username
+
+  const [message, setMessage] = useState('')
+  const [new_username, setNewUsername] = useState(username);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await fetch('http://127.0.0.1:5555/change_username', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ new_username, user_id}),
+    });
+    const data = await response.json();
+    setMessage(data.message);
+  };
   return (
     <div className={`change-username-popup ${className}`}>
       <section className="change-username">
@@ -18,6 +38,10 @@ const ChangeUsernamePopup = ({ className = "", onClose }) => {
             <TextField
               className="frame-textfield"
               placeholder="Type"
+              value={new_username}
+              onChange={(e) => {
+                setNewUsername(e.target.value);
+              }}
               variant="outlined"
               sx={{
                 "& fieldset": { border: "none" },
@@ -35,6 +59,7 @@ const ChangeUsernamePopup = ({ className = "", onClose }) => {
       <div className="submit-action">
         <Button
           className="submit-button1"
+          onClick={handleSubmit}
           disableElevation
           variant="contained"
           sx={{
@@ -51,6 +76,7 @@ const ChangeUsernamePopup = ({ className = "", onClose }) => {
           SUBMIT
         </Button>
       </div>
+      {message && <p>{message}</p>}
     </div>
   );
 };

@@ -1,8 +1,28 @@
 import { Button, TextField } from "@mui/material";
 import PropTypes from "prop-types";
 import "./ChangeEmail.css";
+import { useState } from "react";
 
 const ChangeEmailPopup = ({ className = "", onClose }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const user_id = user.user_id;
+  const email = user.email
+
+  const [message, setMessage] = useState('')
+  const [new_email, setNewEmail] = useState(email);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await fetch('http://127.0.0.1:5555/change_email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ new_email, user_id}),
+    });
+    const data = await response.json();
+    setMessage(data.message);
+  };
   return (
     <div className={`change-email-popup ${className}`}>
       <section className="confirmation-message-parent">
@@ -19,6 +39,7 @@ const ChangeEmailPopup = ({ className = "", onClose }) => {
               className="frame-textfield"
               placeholder="Type"
               variant="outlined"
+              onChange={(e) => setNewEmail(e.target.value)}
               sx={{
                 "& fieldset": { border: "none" },
                 "& .MuiInputBase-root": {
@@ -37,6 +58,7 @@ const ChangeEmailPopup = ({ className = "", onClose }) => {
           className="submit-button"
           disableElevation
           variant="contained"
+          onClick={handleSubmit}
           sx={{
             textTransform: "none",
             color: "#0077ff",
@@ -51,6 +73,7 @@ const ChangeEmailPopup = ({ className = "", onClose }) => {
           SUBMIT
         </Button>
       </div>
+      {message && <p>{message}</p>}
     </div>
   );
 };

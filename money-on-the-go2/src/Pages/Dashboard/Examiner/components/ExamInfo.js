@@ -40,6 +40,10 @@ const ExamInfo = ({
     };
   }, [propBackgroundColor]);
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
+  const email = user.email
+
   return (
     <div className={`exam-info ${className}`}>
       <div className="user-info">
@@ -71,7 +75,7 @@ const ExamInfo = ({
                   />
                 </div>
                 <div className="user-name-container1">
-                  <a className="ayo5">Ayo</a>
+                  <a className="ayo5">{username}</a>
                 </div>
               </div>
             </div>

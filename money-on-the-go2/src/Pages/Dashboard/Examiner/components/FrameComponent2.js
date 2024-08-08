@@ -13,6 +13,9 @@ const FrameComponent2 = ({
     };
   }, [alluraAvatarBackgroundColor]);
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
+
   return (
     <header className={`frame-header ${className}`}>
       <div className="examerpro-wrapper">
@@ -29,7 +32,7 @@ const FrameComponent2 = ({
           />
         </div>
         <div className="user-name-container">
-          <a className="ayo4">Ayo</a>
+          <a className="ayo4">{username}</a>
         </div>
       </div>
     </header>

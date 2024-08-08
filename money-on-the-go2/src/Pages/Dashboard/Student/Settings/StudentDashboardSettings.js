@@ -38,7 +38,9 @@ const StudentDashboardSettings = () => {
     setResetPasswordPopupOpen(false);
   }, []);
 
-
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
+  const email = user.email
 
   return (
     <>
@@ -57,8 +59,8 @@ const StudentDashboardSettings = () => {
             />
           </div>
         </div>
-        <h1 className="ayo">Ayo</h1>
-        <div className="ayogmailcom">ayo@gmail.com</div>
+        <h1 className="ayo">{username}</h1>
+        <div className="ayogmailcom">{email}</div>
         <div className="danger-zone">DANGER ZONE</div>
         <GroupComponent />
         <div className="rectangle-parent" onClick={openChangeUsernamePopup}>
