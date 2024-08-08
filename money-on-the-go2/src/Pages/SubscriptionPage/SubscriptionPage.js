@@ -29,7 +29,7 @@ const SubscriptionPage = () => {
       } catch (error) {
         console.error('Error fetching user ID:', error);
         setError('Failed to fetch user information. Please log in again.');
-        setTimeout(() => navigate('/signin'), 3000); // Redirect to login page after 3 seconds
+        setTimeout(() => navigate('/signin'), 3000); 
       }
     };
 
@@ -44,7 +44,7 @@ const SubscriptionPage = () => {
       return;
     }
 
-    if (amount < 65) { // Adjusting to the minimum threshold
+    if (amount < 65) { 
       setError('Please select a subscription plan with at least 65 KSH.');
       return;
     }
@@ -57,7 +57,7 @@ const SubscriptionPage = () => {
     }
 
     setLoading(true);
-    setError(''); // Reset error state
+    setError(''); 
 
     const { error: stripeError, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
@@ -118,14 +118,14 @@ const SubscriptionPage = () => {
         <div className="subscription-options">
           <button
             type="button"
-            onClick={() => setAmount(65)} // Updated amount
+            onClick={() => setAmount(65)} 
             className={amount === 65 ? 'active' : ''}
           >
             Student - 65 KSH
           </button>
           <button
             type="button"
-            onClick={() => setAmount(130)} // Updated amount
+            onClick={() => setAmount(130)} 
             className={amount === 130 ? 'active' : ''}
           >
             Examiner - 130 KSH
