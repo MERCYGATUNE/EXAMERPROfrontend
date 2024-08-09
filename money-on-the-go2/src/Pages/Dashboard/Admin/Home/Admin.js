@@ -2,11 +2,9 @@ import { useCallback, useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import UserTable from "../components/UserTable";
-import GroupComponent2 from "../components/GroupComponent2";
-import TrashIcon from '../../../../assets/group-1011.svg'
-import EditIcon from '../../../../assets/group-1021.svg'
+import TrashIcon from '../../../../assets/group-1011.svg';
+import EditIcon from '../../../../assets/group-1021.svg';
 import "./Admin.css";
-import '../components/GroupComponent2.css'
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -20,48 +18,80 @@ const AdminDashboard = () => {
   }, [navigate]);
 
   const [data, setData] = useState(null);
+  const [editingUser, setEditingUser] = useState(null);
+  const [newPassword, setNewPassword] = useState("");
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:5555/all_users', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-            if (response.ok) {
-                const jsonData = await response.json();
-                setData(jsonData);
-            } else {
-                console.error('Failed to fetch data:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const handleDelete = async (user_id) =>{
-      try {
-        const response = await fetch('http://127.0.0.1:5555/delete_account', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({user_id}),
-        });
-        console.log(response)
-        const data = await response.json();
-        console.log(data.message);
-        fetchData();
-      } catch (error) {
-        console.log(user_id);
-        console.error('Error deleting user:', error);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:5555/all_users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        const jsonData = await response.json();
+        setData(jsonData);
+      } else {
+        console.error('Failed to fetch data:', response.statusText);
       }
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleDelete = async (user_id) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5555/delete_account', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_id }),
+      });
+      const data = await response.json();
+      console.log(data.message);
+      fetchData();
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+  const handleEditClick = (user) => {
+    setEditingUser(user); // Set the user to be edited
+  };
+
+  const handleSave = async () => {
+    const updatedData = { ...editingUser };
+    if (newPassword) {
+      updatedData.password = newPassword; // Include new password if provided
+    }
+    try {
+      const response = await fetch('http://127.0.0.1:5555/update_user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      });
+      const data = await response.json();
+      console.log(data.message);
+      setEditingUser(null);
+      setNewPassword(""); // Exit edit mode
+      fetchData(); // Refresh the data after saving
+    } catch (error) {
+      console.error('Error saving user:', error);
+    }
+  };
+
+  const handleCancel = () => {
+    setEditingUser(null);
+    setNewPassword(""); // Exit edit mode without saving
+  };
 
   return (
     <div className="admin-dashboard">
@@ -107,41 +137,98 @@ const AdminDashboard = () => {
         </div>
       </div>
       <UserTable />
-      {data ? (data.map((user)=>(
-        <div className={`lenny-row-parent`} key={user.id}>
-        <div className="lenny-row">
-          <b className="lenny">{user.username}</b>
-        </div>
-        <div className="lenny-info-row">
-          <div className="lenny-details">
-            <b className="lennywachira01gmailcom">{user.email}</b>
-            <b className="student">{user.role}</b>
+      {editingUser ? (
+        <div className="login-sections101">
+          <div className='login-form-container1'>
+            <div className='form2'>
+              <div className='form-text1'>
+                <h3 className='sign-in'>Edit User</h3>
+              </div>
+              <div className='credentials-form-container'>
+                <div className='form3'>
+                  <form className='form4'>
+                    <label>
+                      Username:
+                      <input
+                        className='password101'
+                        type="text"
+                        value={editingUser.username}
+                        onChange={(e) => setEditingUser({ ...editingUser, username: e.target.value })}
+                      />
+                    </label>
+                    <label>
+                      Email:
+                      <input
+                        className='password101'
+                        type="email"
+                        value={editingUser.email}
+                        onChange={(e) => setEditingUser({ ...editingUser, email: e.target.value })}
+                      />
+                    </label>
+                    <label>
+                      Role:
+                      <input
+                        className='password101'
+                        type="text"
+                        value={editingUser.role}
+                        onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
+                      />
+                    </label>
+                    <label>
+                      New Password:
+                      <input
+                        className="password101"
+                        type="password"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        placeholder="Enter new password"
+                      />
+                    </label>
+                  </form>
+                </div>
+              </div>
+
+              <button  className='search-flights-button1' onClick={handleSave}>Save</button>
+              <button  className='search-flights-button1' onClick={handleCancel}>Back</button>
+            </div>
           </div>
         </div>
-        <div className="empty-user-row">
-          <b className="empty-user-cell">{user.created_at}</b>
-        </div>
-        <div className="frame-parent20">
-          <div className="frame-wrapper3">
-            <img
-              className="frame-child3"
-              loading="lazy"
-              onClick={() => handleDelete(user.id)}
-              alt=""
-              src={TrashIcon}
-            />
+      ) : (
+        data ? (data.map((user) => (
+          <div className={`lenny-row-parent`} key={user.id}>
+            <div className="lenny-row">
+              <b className="lenny">{user.username}</b>
+            </div>
+            <div className="lenny-info-row">
+              <div className="lenny-details">
+                <b className="lennywachira01gmailcom">{user.email}</b>
+                <b className="student">{user.role}</b>
+              </div>
+            </div>
+            <div className="empty-user-row">
+              <b className="empty-user-cell">{user.created_at}</b>
+            </div>
+            <div className="frame-parent20">
+              <div className="frame-wrapper3">
+                <img
+                  className="frame-child3"
+                  loading="lazy"
+                  onClick={() => handleDelete(user.id)}
+                  alt=""
+                  src={TrashIcon}
+                />
+              </div>
+              <img
+                className="frame-child4"
+                loading="lazy"
+                onClick={() => handleEditClick(user)}
+                alt=""
+                src={EditIcon}
+              />
+            </div>
           </div>
-          <img
-            className="frame-child4"
-            loading="lazy"
-            alt=""
-            src={EditIcon}
-          />
-        </div>
-      </div>
-      ))): <p className='loading'>Loading...</p>}
-      {/* <GroupComponent2 />
-      <GroupComponent2 /> */}
+        ))) : <p className='loading'>Loading...</p>
+      )}
       <img
         className="arrow-down-2-iconly-pro"
         alt=""
