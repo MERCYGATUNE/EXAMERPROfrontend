@@ -15,6 +15,9 @@ import ProtectedRoute from './Pages/components/ProtectedRoute';
 import Examiner from './Pages/Dashboard/Examiner/Home/Examiner';
 import ResetPassword from './Pages/ResetPassword/ResetPasswordPage';
 import Home from './Pages/Home/Home';
+import AdminDashboard from './Pages/Dashboard/Admin/Home/Admin';
+import AdminDashboardExams from './Pages/Dashboard/Admin/Exams/AdminDashboardExams';
+import AdminDashboardCategories from './Pages/Dashboard/Admin/Categories/AdminDashboardCategories';
 
 // Ensure this is your actual public key from .env
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
@@ -46,6 +49,9 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
           </Route>
+          <Route path='/admin-dashboard' element={<AdminDashboard/>} />
+          <Route path='/admin-dashboard-exams' element={<AdminDashboardExams/>} />
+          <Route path ='/admin-dashboard-categories' element = {<AdminDashboardCategories/>} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />

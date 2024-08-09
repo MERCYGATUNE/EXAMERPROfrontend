@@ -1,0 +1,392 @@
+.examerpro3 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+}
+.examerpro3:hover {
+  font-weight: 700;
+  font-family: var(--font-ubuntu);
+  font-size: var(--font-size-45xl);
+  text-align: left;
+  color: var(--color-black);
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+}
+.admin2 {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: 0.37em;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  height: auto;
+}
+.admin2:hover {
+  font-weight: 700;
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-29xl);
+  letter-spacing: 0.37em;
+  text-align: center;
+  color: var(--color-darkviolet);
+  display: flex;
+  flex: 1;
+  height: auto;
+}
+.admin-label {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px var(--padding-35xl);
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+  text-align: center;
+  font-size: var(--font-size-29xl);
+  color: var(--color-darkviolet);
+  font-family: var(--font-open-sans);
+}
+.admin-label:hover {
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  padding: 0px var(--padding-35xl);
+  box-sizing: border-box;
+}
+.product-name {
+  width: 391px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.product-name:hover {
+  display: flex;
+  width: 391px;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  max-width: 100%;
+}
+.branding {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px var(--padding-12xs) 0px 0px;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.branding:hover {
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: center;
+  transform: rotate(0deg);
+  padding: 0px var(--padding-12xs) 0px 0px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.users1 {
+  position: relative;
+  letter-spacing: 0.3em;
+  display: flex;
+  min-width: 76;
+  white-space: nowrap;
+  font-weight: 700;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  cursor: pointer;
+  z-index: 1;
+}
+.users1:hover {
+  font-weight: 700;
+  font-family: var(--font-poppins);
+  font-size: var(--previewthemeforestnet-kumbh-sans-regular-16-size);
+  letter-spacing: 0.3em;
+  text-align: left;
+  color: var(--color-black);
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  min-width: 76;
+  white-space: nowrap;
+}
+.menu-items {
+  width: 94px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-6xs) var(--padding-base) 0px 0px;
+  box-sizing: border-box;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.menu-items:hover {
+  display: flex;
+  width: 94px;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  padding: var(--padding-6xs) var(--padding-base) 0px 0px;
+  box-sizing: border-box;
+}
+.exams41 {
+  height: 33px;
+  width: 184px;
+  background-color: var(--color-blueviolet);
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  border-radius: var(--br-11xl);
+  padding: var(--padding-9xs) var(--padding-13xl) var(--padding-9xs)
+    var(--padding-39xl);
+  box-sizing: border-box;
+  z-index: 1;
+}
+.exams41:hover {
+  background-color: var(--color-blueviolet);
+  display: flex;
+  width: 184px;
+  height: 33px;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  border-radius: var(--br-11xl);
+  padding: var(--padding-9xs) var(--padding-13xl) var(--padding-9xs)
+    var(--padding-39xl);
+  box-sizing: border-box;
+}
+.categories1 {
+  height: 25px;
+  position: relative;
+  letter-spacing: 0.3em;
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-weight: 700;
+  width: auto;
+  align-self: unset;
+  cursor: pointer;
+  z-index: 1;
+}
+.categories1:hover {
+  font-weight: 700;
+  font-family: var(--font-poppins);
+  font-size: var(--previewthemeforestnet-kumbh-sans-regular-16-size);
+  letter-spacing: 0.3em;
+  text-align: left;
+  color: var(--color-black);
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: 25px;
+  white-space: nowrap;
+}
+.categories-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0px 0px;
+  box-sizing: border-box;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+}
+.categories-label:hover {
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  padding: var(--padding-9xs) 0px 0px;
+  box-sizing: border-box;
+}
+.menu-container {
+  border-radius: var(--br-11xl);
+  background-color: var(--color-gray-100);
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-7xs) var(--padding-9xl) var(--padding-7xs)
+    var(--padding-47xl);
+  box-sizing: border-box;
+  gap: var(--gap-37xl);
+  max-width: 100%;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  transform: rotate(0deg);
+}
+.menu-container:hover {
+  background-color: var(--color-gray-100);
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-37xl);
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+  border-radius: var(--br-11xl);
+  padding: var(--padding-7xs) var(--padding-9xl) var(--padding-7xs)
+    var(--padding-47xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.navigation {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+  font-size: var(--previewthemeforestnet-kumbh-sans-regular-16-size);
+  font-family: var(--font-poppins);
+}
+.navigation:hover {
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  justify-content: center;
+  transform: rotate(0deg);
+  max-width: 100%;
+}
+.admin-dashboard-exams {
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-thistle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-18xl) var(--padding-53xl) var(--padding-427xl);
+  box-sizing: border-box;
+  gap: 33.75px;
+  line-height: normal;
+  letter-spacing: normal;
+  height: auto;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--color-black);
+  font-family: var(--font-ubuntu);
+}
+.admin-dashboard-exams:hover {
+  background-color: var(--color-thistle);
+  display: flex;
+  width: 1440px;
+  height: auto;
+  flex-direction: column;
+  gap: 33.75px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-18xl) var(--padding-53xl) var(--padding-427xl);
+  box-sizing: border-box;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+@media screen and (max-width: 750px) {
+  .examerpro3 {
+    font-size: var(--font-size-32xl);
+  }
+
+  .admin2 {
+    font-size: var(--font-size-19xl);
+  }
+
+  .menu-container {
+    gap: var(--gap-9xl);
+    padding-left: var(--padding-14xl);
+    box-sizing: border-box;
+  }
+
+  .admin-dashboard-exams {
+    gap: var(--gap-mid);
+    padding-left: var(--padding-17xl);
+    padding-right: var(--padding-17xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .examerpro3 {
+    font-size: var(--font-size-19xl);
+  }
+
+  .admin2 {
+    font-size: var(--font-size-10xl);
+  }
+
+  .admin-label {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

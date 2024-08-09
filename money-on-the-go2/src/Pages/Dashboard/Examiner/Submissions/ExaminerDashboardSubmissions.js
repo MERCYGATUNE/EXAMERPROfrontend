@@ -5,7 +5,6 @@ import "./ExaminerDashboardSubmissions.css";
 const ExaminerDashboardSubmissions = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const username = user.username
-  const email = user.email
   return (
     <div className="examiner-dashboard-submissions">
       <LeftBar5 />
