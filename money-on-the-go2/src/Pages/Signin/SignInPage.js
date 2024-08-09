@@ -31,11 +31,11 @@ const SignInPage = () => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user.role) { // Check if user and user.role exist
           if (user.role === "examiner") {
-            navigate("/examiner");
+            navigate("/examiner-dashboard");
           } else if (user.role === "student") {
             navigate("/student-dashboard");
           } else if (user.role === "admin") {
-            navigate("/admin");
+            navigate("/admin-dashboard");
           } else if (user.role === "user") {
             navigate("/subscription");
           }

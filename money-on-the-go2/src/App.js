@@ -38,7 +38,7 @@ function App() {
             <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
-            <Route path="/examiner" element={<Examiner />} />
+            <Route path="/examiner-dashboard" element={<Examiner />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-exams" element={<ExaminerDashboardExams />} />
@@ -49,9 +49,15 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
           </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           <Route path='/admin-dashboard' element={<AdminDashboard/>} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           <Route path='/admin-dashboard-exams' element={<AdminDashboardExams/>} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           <Route path ='/admin-dashboard-categories' element = {<AdminDashboardCategories/>} />
+          </Route>
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />

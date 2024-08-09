@@ -635,6 +635,7 @@
     width: 59.8px;
     height: 47px;
     flex-shrink: 0;
+    cursor: pointer;
   }
   .frame-parent20 {
     width: 142.8px;
