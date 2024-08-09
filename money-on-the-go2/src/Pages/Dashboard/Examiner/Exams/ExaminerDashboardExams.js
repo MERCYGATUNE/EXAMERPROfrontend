@@ -15,7 +15,13 @@ const ExaminerDashboardExams = () => {
             alluraAvatar={AlluraAvatar}
             fUNCTIONS="FUNCTIONS"
           />
-          <GroupComponent1 />
+          <GroupComponent1 
+          propHeight="32px"
+          propWidth="362px"
+          propHeight1="33px"
+          propMinHeight="33"
+          propHeight2="32px"
+          />
           <GroupComponent1
             propHeight="32px"
             propWidth="362px"
