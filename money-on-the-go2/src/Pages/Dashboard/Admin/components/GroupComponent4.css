@@ -4,7 +4,7 @@
   width: 217px;
   position: relative;
   font-size: inherit;
-  letter-spacing: 0.6em;
+  letter-spacing: 10px;
   font-weight: 700;
   font-family: inherit;
   display: flex;
@@ -15,7 +15,7 @@
   font-weight: 700;
   font-family: var(--font-poppins);
   font-size: var(--previewthemeforestnet-kumbh-sans-medium-32-size);
-  letter-spacing: 0.6em;
+  letter-spacing: 10px;
   text-align: left;
   color: var(--color-mediumorchid);
   display: flex;

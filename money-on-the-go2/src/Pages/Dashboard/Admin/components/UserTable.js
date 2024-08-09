@@ -1,4 +1,4 @@
-import GroupComponent2 from "./GroupComponent2";
+
 import PropTypes from "prop-types";
 import "./UserTable.css";
 
@@ -22,7 +22,6 @@ const UserTable = ({ className = "" }) => {
           </div>
         </div>
       </div>
-      <GroupComponent2 />
     </section>
   );
 };
