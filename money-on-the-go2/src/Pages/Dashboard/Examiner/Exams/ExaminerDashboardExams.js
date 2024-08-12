@@ -3,7 +3,6 @@ import LeftBar4 from "../components/LeftBar4";
 import ExamInfo from "../components/ExamInfo";
 import GroupComponent1 from "../components/GroupComponent1";
 import AlluraAvatar from '../../../../assets/allura-avatar1@2x.png';
-import ExamAdder from "../components/ExamAdder"; // Import the ExamAdder component
 import "./ExaminerDashboardExams.css";
 
 const ExaminerDashboardExams = () => {
@@ -28,7 +27,6 @@ const ExaminerDashboardExams = () => {
         </section>
 
         <section className="exam-adder">
-          <ExamAdder /> {/* Add the ExamAdder component */}
         </section>
       </main>
     </div>

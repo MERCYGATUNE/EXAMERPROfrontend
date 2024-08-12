@@ -20,6 +20,7 @@ import AdminDashboardExams from './Pages/Dashboard/Admin/Exams/AdminDashboardExa
 import AdminDashboardCategories from './Pages/Dashboard/Admin/Categories/AdminDashboardCategories';
 import ExamPageResults from './Pages/ExamPage/ExamPageResults';
 import ExamPage from './Pages/ExamPage/ExamPage';
+import ExamAdder from './Pages/Dashboard/Examiner/ExamAdder/ExamAdder';
 
 // Ensure this is your actual public key from .env
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
@@ -30,8 +31,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
             <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['student']} />}>
             <Route path="/student-dashboard-exams" element={<StudentDashboardExams />} />
@@ -60,8 +61,9 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path='/admin-dashboard-categories' element={<AdminDashboardCategories />} />
           </Route>
-          <Route path='/exam-page-results' element={<ExamPageResults/>} />
-          <Route path='/exam-page' element={<ExamPage/>} />
+          <Route path='/add-exams' element={<ExamAdder/>} />
+          <Route path='/exam-page-results/:exam_id' element={<ExamPageResults/>} />
+          <Route path='/exam-page/:exam_id' element={<ExamPage/>} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />

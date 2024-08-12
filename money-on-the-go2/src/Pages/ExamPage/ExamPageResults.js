@@ -1,11 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import "./ExamPageResults.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ExamPageResults = () => {
   const navigate = useNavigate();
   const navigateToDashboard = () => {
     navigate("/student-dashboard");
   }
+  const { exam_id } = useParams();
+  const [grade, setGrade] = useState(null);
+  useEffect(() => {
+    const fetchGrade = async () => {
+      try {
+        console.log(`Fetching exam with ID: ${exam_id}`);
+        const response = await axios.get(`http://127.0.0.1:5555/get_submission/${exam_id}`);
+        setGrade(response.data);
+        console.log(response.data);
+      } catch (err) {
+        console.error('Error fetching exam:', err);
+      }
+    };
+    fetchGrade();
+  }, [exam_id]);
+  console.log(grade)
   return (
     <div className="exam-page-results">
       <section className="school-info1">
@@ -37,7 +56,7 @@ const ExamPageResults = () => {
               Auto-Grader has given you a grade of:
             </b>
             <div className="wrapper">
-              <b className="b1">🎊 89% 🎊</b>
+              <b className="b1">🎊 {grade?.grade}% 🎊</b>
             </div>
           </div>
         </div>
