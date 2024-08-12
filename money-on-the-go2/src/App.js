@@ -18,6 +18,8 @@ import Home from './Pages/Home/Home';
 import AdminDashboard from './Pages/Dashboard/Admin/Home/Admin';
 import AdminDashboardExams from './Pages/Dashboard/Admin/Exams/AdminDashboardExams';
 import AdminDashboardCategories from './Pages/Dashboard/Admin/Categories/AdminDashboardCategories';
+import ExamPageResults from './Pages/ExamPage/ExamPageResults';
+import ExamPage from './Pages/ExamPage/ExamPage';
 
 // Ensure this is your actual public key from .env
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
@@ -38,7 +40,7 @@ function App() {
             <Route path="/student-dashboard-settings" element={<StudentDashboardSettings />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
-            <Route path="/examiner" element={<Examiner />} />
+            <Route path="/examiner-dashboard" element={<Examiner />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-exams" element={<ExaminerDashboardExams />} />
@@ -49,9 +51,17 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
           </Route>
-          <Route path='/admin-dashboard' element={<AdminDashboard/>} />
-          <Route path='/admin-dashboard-exams' element={<AdminDashboardExams/>} />
-          <Route path ='/admin-dashboard-categories' element = {<AdminDashboardCategories/>} />
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+            <Route path='/admin-dashboard' element={<AdminDashboard />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+            <Route path='/admin-dashboard-exams' element={<AdminDashboardExams />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+            <Route path='/admin-dashboard-categories' element={<AdminDashboardCategories />} />
+          </Route>
+          <Route path='/exam-page-results' element={<ExamPageResults/>} />
+          <Route path='/exam-page' element={<ExamPage/>} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />

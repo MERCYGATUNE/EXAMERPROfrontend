@@ -1,0 +1,320 @@
+.examerpro1 {
+    height: 68px;
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+  }
+  .examiner {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+  }
+  .branding-child {
+    align-self: stretch;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .branding {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: var(--font-size-21xl);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+  }
+  .form-1,
+  .jamias-high-school1 {
+    height: 49px;
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .jamias-high-school1 {
+    align-self: stretch;
+  }
+  .form-1 {
+    width: 262px;
+  }
+  .examiner1 {
+    width: 490px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .biology1 {
+    height: 49px;
+    width: 238px;
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .school-name {
+    width: 490px;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .frame-wrapper,
+  .jamias-high-school-parent,
+  .school-name {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .jamias-high-school-parent {
+    width: 533px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-4xs);
+  }
+  .frame-wrapper {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 var(--padding-xl) 0 63px;
+    box-sizing: border-box;
+  }
+  .auto-grader-has-given,
+  .b1 {
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+  }
+  .auto-grader-has-given {
+    align-self: stretch;
+    height: 63px;
+    flex-shrink: 0;
+  }
+  .b1 {
+    height: 211px;
+  }
+  .frame-group,
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .wrapper {
+    width: 959px;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 170px;
+    color: #423fec;
+  }
+  .frame-group {
+    width: 986px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-mid);
+  }
+  .school-info-inner,
+  .school-info1 {
+    align-self: stretch;
+    display: flex;
+    max-width: 100%;
+  }
+  .school-info-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+    box-sizing: border-box;
+  }
+  .school-info1 {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--gap-19xl);
+    text-align: center;
+    font-size: var(--font-size-17xl);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+  }
+  .the-examiner-will {
+    height: 60px;
+    flex: 1;
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    max-width: 100%;
+  }
+  .examiner-message {
+    width: 1347px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-47xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .here {
+    color: #3656ff;
+  }
+  .click-here-to-container {
+    height: 60px;
+    width: 928px;
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  .examiner-message1,
+  .frame-item {
+    align-self: stretch;
+    max-width: 100%;
+  }
+  .examiner-message1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+    box-sizing: border-box;
+  }
+  .frame-item {
+    position: relative;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .examiner-message-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 60.5px;
+    max-width: 100%;
+  }
+  .alex-gathecha1 {
+    height: 40px;
+    position: relative;
+    letter-spacing: 0.01em;
+    display: inline-block;
+  }
+  .alex-gathecha-wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+    text-align: left;
+    font-size: var(--font-size-21xl);
+  }
+  .exam-page-results,
+  .frame-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frame-container {
+    align-self: stretch;
+    gap: var(--gap-xl);
+    max-width: 100%;
+    text-align: center;
+    font-size: var(--font-size-17xl);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+  }
+  .exam-page-results {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    overflow: hidden;
+    padding: var(--padding-12xl) var(--padding-13xl) 44px;
+    box-sizing: border-box;
+    gap: 67px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  @media screen and (max-width: 1200px) {
+    .examiner-message {
+      padding-left: var(--padding-14xl);
+      padding-right: var(--padding-14xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .examerpro1 {
+      font-size: var(--font-size-13xl);
+    }
+    .auto-grader-has-given,
+    .biology1,
+    .form-1,
+    .jamias-high-school1 {
+      font-size: var(--font-size-10xl);
+    }
+    .b1 {
+      font-size: 68px;
+    }
+    .click-here-to-container,
+    .the-examiner-will {
+      font-size: var(--font-size-10xl);
+    }
+    .alex-gathecha1 {
+      font-size: var(--font-size-13xl);
+    }
+  }
+  @media screen and (max-width: 725px) {
+    .examerpro1 {
+      font-size: var(--font-size-5xl);
+    }
+    .auto-grader-has-given,
+    .biology1,
+    .form-1,
+    .jamias-high-school1 {
+      font-size: var(--font-size-3xl);
+    }
+    .b1 {
+      font-size: 42px;
+    }
+    .click-here-to-container,
+    .the-examiner-will {
+      font-size: var(--font-size-3xl);
+    }
+    .examiner-message-parent {
+      gap: 15px;
+    }
+    .alex-gathecha1 {
+      font-size: var(--font-size-5xl);
+    }
+    .exam-page-results {
+      gap: var(--gap-mid);
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .frame-wrapper {
+      padding-left: var(--padding-12xl);
+      box-sizing: border-box;
+    }
+    .school-info1 {
+      gap: var(--gap-lgi);
+    }
+    .examiner-message-parent {
+      gap: var(--gap-11xl);
+    }
+    .exam-page-results {
+      gap: var(--gap-14xl);
+    }
+}
