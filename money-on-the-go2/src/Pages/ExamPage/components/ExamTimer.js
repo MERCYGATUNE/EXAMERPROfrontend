@@ -1,29 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const ExamTimer = ({ initialTime }) => {
-  const [timeLeft, setTimeLeft] = useState(initialTime);
+const ExamTimer = ({ initialTime, onEnd }) => {
+  const [remainingTime, setRemainingTime] = useState(initialTime);
 
   useEffect(() => {
-    if (timeLeft > 0) {
-      const timerId = setInterval(() => {
-        setTimeLeft((prevTime) => prevTime - 1);
-      }, 1000);
+    // Check if the exam start time is already stored
+    let startTime = localStorage.getItem("examStartTime");
 
-      return () => clearInterval(timerId); // Clear the interval on component unmount
+    if (!startTime) {
+      // If not stored, store the current time as the start time
+      startTime = Date.now();
+      localStorage.setItem("examStartTime", startTime);
+    } else {
+      // Calculate the remaining time based on the stored start time
+      const elapsedTime = Math.floor((Date.now() - parseInt(startTime)) / 1000);
+      const calculatedTime = initialTime - elapsedTime;
+
+      if (calculatedTime <= 0) {
+        setRemainingTime(0);
+        if (onEnd) onEnd(); // Trigger the onEnd callback if time has already run out
+      } else {
+        setRemainingTime(calculatedTime);
+      }
     }
-  }, [timeLeft]);
 
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    const interval = setInterval(() => {
+      setRemainingTime((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(interval);
+          if (onEnd) onEnd(); // Trigger the onEnd callback when time reaches 0
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [initialTime, onEnd]);
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
-  return (
-    <div className="exam-timer">
-      {formatTime(timeLeft)}
-    </div>
-  );
+  return <div>{formatTime(remainingTime)}</div>;
 };
 
 export default ExamTimer;

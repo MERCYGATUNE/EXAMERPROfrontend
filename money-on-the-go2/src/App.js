@@ -51,8 +51,8 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
           </Route>
+          <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
-            <Route path='/admin-dashboard' element={<AdminDashboard />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path='/admin-dashboard-exams' element={<AdminDashboardExams />} />

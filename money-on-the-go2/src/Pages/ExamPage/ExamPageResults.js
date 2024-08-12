@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import "./ExamPageResults.css";
 
 const ExamPageResults = () => {
+  const navigate = useNavigate();
+  const navigateToDashboard = () => {
+    navigate("/student-dashboard");
+  }
   return (
     <div className="exam-page-results">
       <section className="school-info1">
@@ -45,7 +50,7 @@ const ExamPageResults = () => {
           <div className="examiner-message1">
             <b className="click-here-to-container">
               <span>{`Click `}</span>
-              <span className="here">here</span>
+              <span className="here" onClick={navigateToDashboard}>here</span>
               <span> to go back to the dashboard.</span>
             </b>
           </div>

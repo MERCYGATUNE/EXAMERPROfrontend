@@ -1,39 +1,80 @@
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ExamTimer from "./components/ExamTimer";
 import "./ExamPage.css";
+import { useNavigate } from "react-router-dom";
 
 const ExamPage = () => {
-  const [questions, setQuestions] = useState([
-    {
-      id: "4954cb3bcd54464783b42009cb380504",
-      question_text: "Which of the following is the capital city of Zimbabwe?",
-      choice1: "Harare",
-      choice2: "Kigali",
-      choice3: "Lusaka",
-      choice4: null,
-      isChoice: true,
-    },
-    {
-      id: "4954cb3bcd54464783b42009cb380505",
-      question_text: "Which of the following is the capital city of Zimbabwe?",
-      choice1: "Harare",
-      choice2: "Kigali",
-      choice3: "Lusaka",
-      choice4: "Maputo",
-      isChoice: true,
-    },
-    {
-      id: "4954cb3bcd54464783b42009cb380506",
-      question_text: "What is the capital city of Kenya?",
-      isChoice: false,
-    },
-    // Add more questions as needed
-  ]);
+  const exam = [{
+    "id": "fcd462b1103c4946a3c9794a04f2bfb2",
+    "exam_name": "Loreto High School",
+    "category": "FORM 3",
+    "subcategory": "MATHEMATICS",
+    "createdBy": "Julius Ceasar",
+    "createdOn": "2024-08-09 08:37:46.343232",
+    "questions": [
+        {
+            "id": "4954cb3bcd54464783b42009cb380504",
+            "question_text": "Which of the following is the capital city of Zimbabwe?",
+            "choice1": "Harare",
+            "choice2": "Kigali",
+            "choice3": "Lusaka",
+            "choice4": null,
+            "isChoice": true,
+            "answer": "Harare",
+            "topic": "Geography",
+            "exam_id": "fcd462b1103c4946a3c9794a04f2bfb2"
+          },
+          {
+            "id": "4954cb3bcd54464783b42009cb380505",
+            "question_text": "Which of the following is the capital city of Zimbabwe?",
+            "choice1": null,
+            "choice2": null,
+            "choice3": null,
+            "choice4": null,
+            "isChoice": false,
+            "answer": "Kigali",
+            "topic": "Geography",
+            "exam_id": "fcd462b1103c4946a3c9794a04f2bfb2"
+          },
+          {
+            "id": "4954cb3bcd54464783b42009cb380505",
+            "question_text": "Which of the following is the capital city of Kenya?",
+            "choice1": "Bukaru",
+            "choice2": "Aswara",
+            "choice3": "Nairobi",
+            "choice4": "Kifair",
+            "isChoice": true,
+            "answer": "Nairobi",
+            "topic": "Geography",
+            "exam_id": "fcd462b1103c4946a3c9794a04f2bfb2"
+          }  
+    ]
+}]
+  const [questions, setQuestions] = useState([''])
+  useEffect(() => {
+    setQuestions(exam[0].questions)
+  }, [])
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({}); // Store user's answers
-  const examDuration = 30 * 60;
+  console.log(answers);
+  const handleExamCompletion = () => {
+    // Your logic for handling exam completion
+    localStorage.removeItem("examStartTime");
+  };
+  
+  useEffect(() => {
+    const storedHasStarted = localStorage.getItem('hasStarted');
+    if (storedHasStarted === 'true') {
+      setHasStarted(true);
+    }
+  }, []);
+  const [hasStarted, setHasStarted] = useState(false);
+  const examDuration = 1 * 60;
+  const navigate = useNavigate();
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -53,30 +94,69 @@ const ExamPage = () => {
     }));
   };
 
+  const handleTimerEnd = () => {
+    localStorage.removeItem("hasStarted")
+    localStorage.removeItem("examStartTime");
+    navigate("/exam-page-results");
+  };
+
   // Retrieve the selected answer for the current question
   const selectedChoice = answers[currentQuestion.id] || null;
 
   return (
     <div className="exam-page">
+      {!hasStarted ? (
+        <div className="start-exam-button">
+          <h1 className="examerpro22">ExamerPro™</h1>
+          <h2>{exam[0].exam_name} - {exam[0].category}</h2>
+          <h2>{exam[0].subcategory}</h2>
+          <h3>Made by: {exam[0].createdBy}</h3>
+          <Button
+            variant="contained"
+            onClick={() => {
+              setHasStarted(true);
+              localStorage.setItem("hasStarted", true);
+            }}
+          >
+            Start Exam
+          </Button>
+          <h3>Student Username: {username}</h3>
+        </div>
+      ) : (<>
       <header className="frame-parent">
         <div className="content-parent">
           <div className="content">
-            <h2 className="examerpro">ExamerPro™</h2>
+            <h2 className="examerpro221">ExamerPro™</h2>
           </div>
           <div className="content33">
             <a className="a">
-              <ExamTimer initialTime={examDuration} />
+              <ExamTimer initialTime={examDuration} onEnd={handleTimerEnd} />
             </a>
           </div>
           <div className="school-info">
-            <b className="jamias-high-school">Jamias High School - FORM 1</b>
+            <b className="jamias-high-school">{exam[0].exam_name} - {exam[0].category}</b>
             <div className="subject">
-              <a className="biology">BIOLOGY</a>
+              <a className="biology">{exam[0].subcategory}</a>
             </div>
           </div>
         </div>
       </header>
       <main className="question-content-wrapper">
+      {/* <aside className="question-nav">
+              <h3>Questions</h3>
+              <ul>
+                {questions.map((_, index) => (
+                  <li
+                    key={index}
+                    className={currentQuestionIndex === index ? "active" : ""}
+                    onClick={() => setCurrentQuestionIndex(index)}
+                  >
+                    {index + 1}
+                  </li>
+                ))}
+              </ul>
+            </aside> */}
+
         <section className="question-content">
           <div className="which-of-the-following-is-the-wrapper">
             <b className="which-of-the">
@@ -175,6 +255,7 @@ const ExamPage = () => {
               </div>
             ) : (
               <TextField
+                className='answer-text-field'
                 label="Your Answer"
                 variant="outlined"
                 fullWidth
@@ -188,7 +269,7 @@ const ExamPage = () => {
       <footer className="footer">
         <div className="user-info56">
           <div className="user-name33">
-            <h2 className="alex-gathecha">Alex Gathecha</h2>
+            <h2 className="alex-gathecha">{username}</h2>
           </div>
           <div className="progress">
             <div className="question-tally">
@@ -234,6 +315,7 @@ const ExamPage = () => {
           </div>
         </div>
       </footer>
+      </>)}
     </div>
   );
 };
