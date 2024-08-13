@@ -93,7 +93,7 @@ const SubscriptionPage = () => {
         localStorage.setItem('user', JSON.stringify(user));
         
         if (user.role === 'examiner') {
-          navigate('/examiner');
+          navigate('/examiner-dashboard');
         }
         if (user.role === 'student') {
           navigate('/student-dashboard');

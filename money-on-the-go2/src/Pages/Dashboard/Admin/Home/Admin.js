@@ -54,7 +54,7 @@ const AdminDashboard = () => {
         body: JSON.stringify({ user_id }),
       });
       const data = await response.json();
-      console.log(data.message);
+      console.log(data.error);
       fetchData();
     } catch (error) {
       console.error('Error deleting user:', error);
