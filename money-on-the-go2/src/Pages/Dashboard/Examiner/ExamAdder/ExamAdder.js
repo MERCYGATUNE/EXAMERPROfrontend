@@ -7,10 +7,16 @@ import './ExamAdder.css';
 const ExamAdder = () => {
     const { control, handleSubmit, watch } = useForm();
     const [questions, setQuestions] = useState([]);
+    const user = JSON.parse(localStorage.getItem('user'));
+    const username = user.username
 
     const questionMode = watch('questionMode', '');
 
     const onSubmit = async (data) => {
+            const userId = localStorage.getItem('userId');
+            const user = JSON.parse(localStorage.getItem('user'));
+            const username = user.username
+            console.log(userId)
         try {
             const formattedQuestions = questions.map((q) => ({
                 question_text: q.question,
@@ -27,9 +33,10 @@ const ExamAdder = () => {
                 category: data.category,
                 subcategory: data.subcategory,
                 questions: formattedQuestions,
-                createdBy: 'your-username', // Replace with dynamic data if needed
+                createdBy: username, // Replace with dynamic data if needed
                 createdOn: new Date().toISOString(),
-                exam_duration: 60, // Set the exam duration or make it dynamic
+                exam_duration: data.examDuration, // Set the exam duration or make it dynamic
+                examiner_id: userId,
             };
 
             // Submit exam details along with questions
@@ -42,8 +49,13 @@ const ExamAdder = () => {
     };
 
     const handleAddQuestion = () => {
-        setQuestions([...questions, { question: '', mode: questionMode, answers: [], correctAnswer: '' }]);
+        if (questionMode) {
+            setQuestions([...questions, { question: '', mode: questionMode, answers: [], correctAnswer: '' }]);
+        } else {
+            alert('Please select a question mode before adding a question.');
+        }
     };
+
 
     const handleQuestionChange = (index, event) => {
         const updatedQuestions = questions.map((q, i) =>
@@ -91,16 +103,18 @@ const ExamAdder = () => {
         setQuestions(updatedQuestions);
     };
 
+
     return (
         <div className="exam-adder-container">
             <h1>Add Exam</h1>
+            <h2>Current User: {username}</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-field">
                     <Controller
                         name="examName"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <TextField {...field} label="Exam Name" fullWidth />}
+                        render={({ field }) => <TextField {...field} label="Exam Name" fullWidth required />}
                     />
                 </div>
                 <div className="form-field">
@@ -108,7 +122,7 @@ const ExamAdder = () => {
                         name="category"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <TextField {...field} label="Category" fullWidth />}
+                        render={({ field }) => <TextField {...field} label="Category" fullWidth required />}
                     />
                 </div>
                 <div className="form-field">
@@ -116,7 +130,15 @@ const ExamAdder = () => {
                         name="subcategory"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <TextField {...field} label="Subcategory" fullWidth />}
+                        render={({ field }) => <TextField {...field} label="Subcategory" fullWidth required />}
+                    />
+                </div>
+                <div className="form-field">
+                    <Controller
+                        name="examDuration"
+                        control={control}
+                        defaultValue=""
+                        render={({ field }) => <TextField {...field} label="Exam Duration (minutes)" fullWidth required />}
                     />
                 </div>
                 <div className="form-field">
@@ -143,6 +165,7 @@ const ExamAdder = () => {
                             onChange={(e) => handleQuestionChange(index, e)}
                             label={`Question ${index + 1}`}
                             fullWidth
+                            required
                         />
                         {question.mode === 'open-ended' && (
                             <div className="correct-answer-block">
@@ -152,6 +175,7 @@ const ExamAdder = () => {
                                     onChange={(e) => handleCorrectAnswerChange(index, e)}
                                     label="Correct Answer"
                                     fullWidth
+                                    required
                                 />
                             </div>
                         )}
@@ -163,6 +187,7 @@ const ExamAdder = () => {
                                     onChange={(e) => handleAnswerChange(index, ansIndex, e)}
                                     label={`Choice ${ansIndex + 1}`}
                                     fullWidth
+                                    required
                                 />
                                 <FormControlLabel
                                     control={
