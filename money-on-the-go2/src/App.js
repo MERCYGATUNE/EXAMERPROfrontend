@@ -58,8 +58,8 @@ function App() {
             <Route path='/admin-dashboard-exams' element={<AdminDashboardExams />} />
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           </Route>
-          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path='/admin-dashboard-categories' element={<AdminDashboardCategories />} />
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           </Route>
           <Route path='/add-exams' element={<ExamAdder/>} />
           <Route path='/exam-page-results/:result_id' element={<ExamPageResults/>} />

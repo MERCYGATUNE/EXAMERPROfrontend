@@ -217,7 +217,7 @@ const AdminDashboardExams = () => {
           />
         </div>
         <img
-          className="frame-child6"
+          className="frame-child4"
           loading="lazy"
           alt=""
           src={EditIcon}
