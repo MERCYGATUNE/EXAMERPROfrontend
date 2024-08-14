@@ -2,22 +2,31 @@ import PropTypes from "prop-types";
 import "./TopPerforming.css";
 import ExamIcon from '../../../../assets/3d-casual-life-documents-with-diagram-and-pen.png'
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const TopPerforming = ({ className = "" }) => {
+  const [allExamUUIDs, setAllExamUUIDs] = useState([]);
   useEffect(() => {
     const fetchExamUUIDs = async () => {
         try {
             const response = await axios.get(`http://127.0.0.1:5555/get_all_exam_uuids`);
-            console.log(response.data)
+            setAllExamUUIDs(response.data);
         } catch (err) {
             console.error(err);
         }
     };
     fetchExamUUIDs();
 }, ['']);
+
+  const handleRandomExamer = () => {
+    const randomIndex = Math.floor(Math.random() * allExamUUIDs.length);
+    const examUUID = allExamUUIDs[randomIndex];
+    window.location.href = `/exam-page/${examUUID}`; // Redirect to the exam page with the random exam ID
+  }
+
+
   return (
-    <div className={`top-performing2 ${className}`}>
+    <div className={`top-performing2 ${className}`} onClick={handleRandomExamer}>
       <div className="top-performing-inner" />
       <div className="take-exam-button-container">
         <div className="take-exam-button">

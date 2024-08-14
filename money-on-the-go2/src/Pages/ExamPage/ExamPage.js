@@ -56,7 +56,7 @@ const ExamPage = () => {
   const [answers, setAnswers] = useState({}); // Store user's answers
 
   const [hasStarted, setHasStarted] = useState(false);
-  const examDuration = duration * 60;
+  const examDuration = 3 * 60;
   const navigate = useNavigate();
 
   const currentQuestion = questions[currentQuestionIndex];

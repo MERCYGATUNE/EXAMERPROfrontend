@@ -68,8 +68,18 @@ const AdminDashboardCategories = () => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     localStorage.setItem("selectedCategoryId", category.id);
+    localStorage.setItem("selectedCategoryName",category.name);
     setCurrentView("subcategories");
   };
+  const handleSubcategoryClick = (subcategory) => {
+    setSelectedSubcategory(subcategory);
+    localStorage.setItem('selectedSubCategoryId', subcategory.id);
+    localStorage.setItem('selectedSubcategoryName', subcategory.name);
+    setCurrentView("topics");
+  };
+
+  const CurrentCategoryName = localStorage.getItem("selectedCategoryName");
+  const CurrentSubcategoryName = localStorage.getItem("selectedSubcategoryName");
 
   const handleEditClickCategory = (category) => {
     setEditingCategory(category);
@@ -281,20 +291,18 @@ const AdminDashboardCategories = () => {
     setEditingTopic(null);
     setNewTopicName("");
   };
+ 
 
-  const handleSubcategoryClick = (subcategory) => {
-    setSelectedSubcategory(subcategory);
-    localStorage.setItem('selectedSubCategoryId', subcategory.id);
-    setCurrentView("topics");
-  };
 
   const handleBackClick = () => {
     if (currentView === "topics") {
       localStorage.removeItem('selectedSubCategoryId');
+      localStorage.removeItem('selectedSubcategoryName');
       setSelectedSubcategory(null);
       setCurrentView("subcategories");
     } else if (currentView === "subcategories") {
       localStorage.removeItem('selectedCategoryId');
+      localStorage.removeItem('selectedCategoryName');
       setSelectedCategory(null);
       setCurrentView("categories");
     }
@@ -409,6 +417,7 @@ const AdminDashboardCategories = () => {
       )}
       {currentView === "subcategories" && selectedCategory && (
         <section className="frame-section33">
+          <h1>Subcategories for {CurrentCategoryName}</h1>
           {selectedCategory.subcategories?.map((subcategory) => (
             <div
               className={`form-1-wrapper8`}
@@ -473,6 +482,7 @@ const AdminDashboardCategories = () => {
       )}
       {currentView === "topics" && selectedSubcategory && (
         <section className="frame-section33">
+          <h1>Topics for {CurrentSubcategoryName}</h1>
           {selectedSubcategory.topics?.map((topic) => (
             <div
               className={`form-1-wrapper8`}
