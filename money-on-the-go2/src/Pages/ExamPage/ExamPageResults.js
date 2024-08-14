@@ -9,67 +9,85 @@ const ExamPageResults = () => {
   const navigateToDashboard = () => {
     navigate("/student-dashboard");
   }
-  const { exam_id } = useParams();
+  const { result_id } = useParams();
   const [grade, setGrade] = useState(null);
+  const [exam, setExam] = useState(null);
+  const user = JSON.parse(localStorage.getItem('user'));
+  const username = user.username
+
   useEffect(() => {
     const fetchGrade = async () => {
       try {
-        console.log(`Fetching exam with ID: ${exam_id}`);
-        const response = await axios.get(`http://127.0.0.1:5555/get_submission/${exam_id}`);
-        setGrade(response.data);
-        console.log(response.data);
+        console.log(`Fetching result with ID: ${result_id}`);
+        const response = await axios.get(`http://127.0.0.1:5555/get_submission/${result_id}`);
+
+        const { result, exam } = response.data;
+        setGrade(result.grade);
+        setExam(exam);
+
+        console.log('Fetched data:', response.data); // Logs the full data retrieved from the server
       } catch (err) {
         console.error('Error fetching exam:', err);
       }
     };
     fetchGrade();
-  }, [exam_id]);
-  console.log(grade)
+  }, [result_id]);
+
+  useEffect(() => {
+    console.log('Grade updated:', grade); // Logs the updated grade after it has been set
+  }, [grade]);
+
+  useEffect(() => {
+    console.log('Exam data updated:', exam); // Logs the exam data after it has been set
+  }, [exam]);
+
+
+  const gradeRounded = Math.ceil(grade)
   return (
     <div className="exam-page-results">
       <section className="school-info1">
-        <header className="branding">
-          <div className="examiner">
-            <b className="examerpro1">ExamerPro™</b>
+        <header className="branding551">
+          <div className="examiner761">
+            <b className="examerpro761">ExamerPro™</b>
           </div>
           {/* <img
-            className="branding-child"
+            className="branding551-child"
             loading="lazy"
             alt=""
             src="/vector-6.svg"
           /> */}
         </header>
         <div className="school-info-inner">
-          <div className="frame-group">
-            <div className="frame-wrapper">
+          <div className="frame-group441">
+            <div className="frame-grade-wrapper511">
               <div className="jamias-high-school-parent">
-                <b className="jamias-high-school1">Jamias High School</b>
-                <div className="examiner1">
-                  <b className="form-1">FORM 1</b>
+                <b className="jamias-high-school1">{exam?.exam_name}</b>
+                <div className="examiner567">
+                  <b className="form-901">{exam?.category}</b>
                 </div>
                 <div className="school-name">
-                  <b className="biology1">BIOLOGY</b>
+                  <b className="biology1">{exam?.subcategory}</b>
                 </div>
               </div>
             </div>
             <b className="auto-grader-has-given">
               Auto-Grader has given you a grade of:
             </b>
-            <div className="wrapper">
-              <b className="b1">🎊 {grade?.grade}% 🎊</b>
+            <div className="grade-wrapper">
+              <b className="b1">🎊 {gradeRounded}% 🎊</b>
             </div>
           </div>
         </div>
       </section>
-      <section className="frame-container">
+      <section className="frame-container331">
         <div className="examiner-message-parent">
           <div className="examiner-message">
             <b className="the-examiner-will">{`The examiner will grade your work to give you a final grade. `}</b>
           </div>
           <div className="examiner-message1">
-            <b className="click-here-to-container">
+            <b className="click-here-to-container672">
               <span>{`Click `}</span>
-              <span className="here" onClick={navigateToDashboard}>here</span>
+              <span className="here334" onClick={navigateToDashboard}>here</span>
               <span> to go back to the dashboard.</span>
             </b>
           </div>
@@ -80,8 +98,8 @@ const ExamPageResults = () => {
             src="/vector-6.svg"
           /> */}
         </div>
-        <div className="alex-gathecha-wrapper">
-          <b className="alex-gathecha1">Alex Gathecha</b>
+        <div className="alex-gathecha-grade-wrapper">
+          <b className="alex-gathecha1">{username}</b>
         </div>
       </section>
     </div>

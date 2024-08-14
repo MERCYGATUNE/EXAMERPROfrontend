@@ -12,6 +12,7 @@ const ExamPage = () => {
   const [error, setError] = useState(null);
   const [questions, setQuestions] = useState([''])
   const [duration, setDuration] = useState(1)
+  const [resultId, setResultId] = useState(null)
 
   useEffect(() => {
     const fetchExam = async () => {
@@ -55,7 +56,7 @@ const ExamPage = () => {
   const [answers, setAnswers] = useState({}); // Store user's answers
 
   const [hasStarted, setHasStarted] = useState(false);
-  const examDuration = 1 * 60;
+  const examDuration = 3 * 60;
   const navigate = useNavigate();
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -80,24 +81,37 @@ const ExamPage = () => {
 
   const submitExam = async () =>{
     try{
-      const response = await axios.post(`http://127.0.0.1:5555/submit_exam`, {
+      return axios.post(`http://127.0.0.1:5555/submit_exam`, {
         exam_id,
         user_answers: answers,
         user_id: user.user_id,
       });
-      console.log(response.data);
     }
     catch(err){
       console.error(err);
     }
   } 
 
-  const handleTimerEnd = () => {
-    localStorage.removeItem("hasStarted")
-    localStorage.removeItem("examStartTime");
-    submitExam();
-    navigate(`/exam-page-results/${exam_id}`);
-  };
+  const handleTimerEnd = async () => {
+    try {
+        // Clear any exam-related data from localStorage
+        localStorage.removeItem("hasStarted");
+        localStorage.removeItem("examStartTime");
+
+        // Submit the exam and get the resultId
+        const response = await submitExam();
+        const resultId = response.data.result_id;
+
+        // Store the resultId in localStorage (if necessary)
+        localStorage.setItem('resultId', resultId);
+
+        // Navigate to the results page using the new resultId
+        navigate(`/exam-page-results/${resultId}`);
+    } catch (err) {
+        console.error("Error during exam submission:", err);
+        // Handle the error appropriately (e.g., show an error message to the user)
+    }
+};
 
   // Retrieve the selected answer for the current question
   const selectedChoice = answers[currentQuestion.id] || null;

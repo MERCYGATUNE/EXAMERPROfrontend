@@ -1,4 +1,4 @@
-import GroupComponent3 from "./GroupComponent3";
+
 import PropTypes from "prop-types";
 import "./ExamDetails.css";
 
@@ -25,7 +25,7 @@ const ExamDetails = ({ className = "" }) => {
           </div>
         </div>
       </div>
-      <GroupComponent3 />
+
     </section>
   );
 };

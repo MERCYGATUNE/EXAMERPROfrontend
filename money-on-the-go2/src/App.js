@@ -55,14 +55,14 @@ function App() {
           <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           </Route>
-          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path='/admin-dashboard-exams' element={<AdminDashboardExams />} />
-          </Route>
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+          </Route>
             <Route path='/admin-dashboard-categories' element={<AdminDashboardCategories />} />
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           </Route>
           <Route path='/add-exams' element={<ExamAdder/>} />
-          <Route path='/exam-page-results/:exam_id' element={<ExamPageResults/>} />
+          <Route path='/exam-page-results/:result_id' element={<ExamPageResults/>} />
           <Route path='/exam-page/:exam_id' element={<ExamPage/>} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />

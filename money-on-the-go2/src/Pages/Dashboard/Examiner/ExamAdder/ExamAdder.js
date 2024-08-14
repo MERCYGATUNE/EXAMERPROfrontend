@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button, MenuItem, Select, FormControl, InputLabel, Radio, FormControlLabel } from '@mui/material';
 import axios from 'axios';
@@ -7,16 +7,40 @@ import './ExamAdder.css';
 const ExamAdder = () => {
     const { control, handleSubmit, watch } = useForm();
     const [questions, setQuestions] = useState([]);
-    const user = JSON.parse(localStorage.getItem('user'));
-    const username = user.username
+    const [allCategories, setAllCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedSubcategory, setSelectedSubcategory] = useState(null);
 
     const questionMode = watch('questionMode', '');
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    const username = user?.username;
+
+    const fetchCategories = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:5555/all_categories', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                const jsonData = await response.json();
+                setAllCategories(jsonData);
+            } else {
+                console.error('Failed to fetch data:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
     const onSubmit = async (data) => {
-            const userId = localStorage.getItem('userId');
-            const user = JSON.parse(localStorage.getItem('user'));
-            const username = user.username
-            console.log(userId)
+        const userId = localStorage.getItem('userId');
         try {
             const formattedQuestions = questions.map((q) => ({
                 question_text: q.question,
@@ -30,16 +54,15 @@ const ExamAdder = () => {
 
             const examData = {
                 exam_name: data.examName,
-                category: data.category,
-                subcategory: data.subcategory,
+                category: selectedCategory.name,
+                subcategory: selectedSubcategory?.name || '',
                 questions: formattedQuestions,
-                createdBy: username, // Replace with dynamic data if needed
+                createdBy: username,
                 createdOn: new Date().toISOString(),
-                exam_duration: data.examDuration, // Set the exam duration or make it dynamic
+                exam_duration: data.examDuration,
                 examiner_id: userId,
             };
 
-            // Submit exam details along with questions
             await axios.post('http://127.0.0.1:5555/add_exams', examData);
             alert('Exam added successfully!');
         } catch (error) {
@@ -55,7 +78,6 @@ const ExamAdder = () => {
             alert('Please select a question mode before adding a question.');
         }
     };
-
 
     const handleQuestionChange = (index, event) => {
         const updatedQuestions = questions.map((q, i) =>
@@ -103,6 +125,16 @@ const ExamAdder = () => {
         setQuestions(updatedQuestions);
     };
 
+    const handleCategoryChange = (event) => {
+        const selected = allCategories.find((cat) => cat.name === event.target.value);
+        setSelectedCategory(selected);
+        setSelectedSubcategory(null); // Reset subcategory when the category changes
+    };
+
+    const handleSubcategoryChange = (event) => {
+        const selected = selectedCategory.subcategories.find((subcat) => subcat.name === event.target.value);
+        setSelectedSubcategory(selected);
+    };
 
     return (
         <div className="exam-adder-container">
@@ -118,20 +150,33 @@ const ExamAdder = () => {
                     />
                 </div>
                 <div className="form-field">
-                    <Controller
-                        name="category"
-                        control={control}
-                        defaultValue=""
-                        render={({ field }) => <TextField {...field} label="Category" fullWidth required />}
-                    />
+                    <FormControl fullWidth>
+                        <InputLabel>Category</InputLabel>
+                        <Select value={selectedCategory?.name || ''} onChange={handleCategoryChange} label="Category">
+                            {allCategories.map((category) => (
+                                <MenuItem key={category.id} value={category.name}>
+                                    {category.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>
                 <div className="form-field">
-                    <Controller
-                        name="subcategory"
-                        control={control}
-                        defaultValue=""
-                        render={({ field }) => <TextField {...field} label="Subcategory" fullWidth required />}
-                    />
+                    <FormControl fullWidth>
+                        <InputLabel>Subcategory</InputLabel>
+                        <Select
+                            value={selectedSubcategory?.name || ''}
+                            onChange={handleSubcategoryChange}
+                            label="Subcategory"
+                            disabled={!selectedCategory}
+                        >
+                            {selectedCategory?.subcategories.map((subcategory) => (
+                                <MenuItem key={subcategory.id} value={subcategory.name}>
+                                    {subcategory.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>
                 <div className="form-field">
                     <Controller
@@ -167,6 +212,7 @@ const ExamAdder = () => {
                             fullWidth
                             required
                         />
+
                         {question.mode === 'open-ended' && (
                             <div className="correct-answer-block">
                                 <TextField
@@ -179,6 +225,27 @@ const ExamAdder = () => {
                                 />
                             </div>
                         )}
+
+                        {selectedSubcategory && (
+                            <FormControl fullWidth>
+                                <InputLabel>Topic</InputLabel>
+                                <Controller
+                                    name={`topic-${index}`}
+                                    control={control}
+                                    defaultValue=""
+                                    render={({ field }) => (
+                                        <Select {...field} label="Topic">
+                                            {selectedSubcategory.topics?.map((topic) => (
+                                                <MenuItem key={topic.id} value={topic.name}>
+                                                    {topic.name}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    )}
+                                />
+                            </FormControl>
+                        )}
+
                         {question.mode === 'multiple-choice' && question.answers.map((answer, ansIndex) => (
                             <div key={ansIndex} className="answer-block">
                                 <TextField
@@ -197,36 +264,27 @@ const ExamAdder = () => {
                                             value={ansIndex}
                                         />
                                     }
-                                    label="Correct"
+                                    label="Correct Answer"
                                 />
-                                <Button
-                                    className="remove-button"
-                                    onClick={() => handleRemoveAnswer(index, ansIndex)}
-                                >
-                                    Remove Choice
-                                </Button>
+                                {ansIndex > 1 && (
+                                    <Button onClick={() => handleRemoveAnswer(index, ansIndex)} variant="outlined" color="secondary">
+                                        Remove Choice
+                                    </Button>
+                                )}
                             </div>
                         ))}
+
                         {question.mode === 'multiple-choice' && (
-                            <Button
-                                className="add-button"
-                                onClick={() => handleAddAnswer(index)}
-                            >
-                                Add Choice
+                            <Button onClick={() => handleAddAnswer(index)} variant="outlined" color="primary">
+                                Add Answer
                             </Button>
                         )}
                     </div>
                 ))}
-                <Button
-                    className="add-button"
-                    onClick={handleAddQuestion}
-                >
+                <Button onClick={handleAddQuestion} variant="contained" color="primary">
                     Add Question
                 </Button>
-                <Button
-                    type="submit"
-                    className="submit-button margin-top-20"
-                >
+                <Button type="submit" variant="contained" color="secondary">
                     Submit Exam
                 </Button>
             </form>
