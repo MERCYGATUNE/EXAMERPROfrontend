@@ -1,4 +1,122 @@
-.home-page{
-    background-color: blue;
-    color: blue;
-}
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero-section {
+    width: 100%;
+    background-image: url('../../assets/pexels-vlado-paunovic-1567547-3038740.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin: 0 0 40px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #0400c2;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none; 
+  }
+  
+  .cta-button:hover {
+    background-color: #0300a1;
+  }
+  
+  
+  .features-section {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .features-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .feature {
+    margin-bottom: 40px;
+  }
+  
+  .feature-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .feature-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .footer {
+    width: 100%;
+    background-color: #0400c2;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+  }
+  
+  .footer-text {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  
+    .feature-title {
+      font-size: 1.5rem;
+    }
+  
+    .feature-description {
+      font-size: 0.9rem;
+    }
+  }
+  
