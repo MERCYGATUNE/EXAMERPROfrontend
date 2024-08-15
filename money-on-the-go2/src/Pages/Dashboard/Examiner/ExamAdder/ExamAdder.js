@@ -45,6 +45,7 @@ const ExamAdder = () => {
             const formattedQuestions = questions.map((q) => ({
                 question_text: q.question,
                 isChoice: q.mode === 'multiple-choice',
+                topic: q.topic,
                 choice1: q.answers[0]?.answer || '',
                 choice2: q.answers[1]?.answer || '',
                 choice3: q.answers[2]?.answer || '',
@@ -62,7 +63,7 @@ const ExamAdder = () => {
                 exam_duration: data.examDuration,
                 examiner_id: userId,
             };
-
+            console.log(examData)
             await axios.post('http://127.0.0.1:5555/add_exams', examData);
             alert('Exam added successfully!');
         } catch (error) {
@@ -125,6 +126,13 @@ const ExamAdder = () => {
         setQuestions(updatedQuestions);
     };
 
+    const handleTopicChange = (questionIndex, event) => {
+        const updatedQuestions = questions.map((q, i) =>
+            i === questionIndex ? { ...q, topic: event.target.value } : q
+        );
+        setQuestions(updatedQuestions);
+    };
+
     const handleCategoryChange = (event) => {
         const selected = allCategories.find((cat) => cat.name === event.target.value);
         setSelectedCategory(selected);
@@ -135,6 +143,10 @@ const ExamAdder = () => {
         const selected = selectedCategory.subcategories.find((subcat) => subcat.name === event.target.value);
         setSelectedSubcategory(selected);
     };
+
+    const handleBackToDashboard = () => {
+        window.location.href = '/examiner-dashboard';
+    }
 
     return (
         <div className="exam-adder-container">
@@ -228,22 +240,19 @@ const ExamAdder = () => {
 
                         {selectedSubcategory && (
                             <FormControl fullWidth>
-                                <InputLabel>Topic</InputLabel>
-                                <Controller
-                                    name={`topic-${index}`}
-                                    control={control}
-                                    defaultValue=""
-                                    render={({ field }) => (
-                                        <Select {...field} label="Topic">
-                                            {selectedSubcategory.topics?.map((topic) => (
-                                                <MenuItem key={topic.id} value={topic.name}>
-                                                    {topic.name}
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
-                                    )}
-                                />
-                            </FormControl>
+                            <InputLabel>Topic</InputLabel>
+                            <Select
+                                value={question.topic || ''}
+                                onChange={(e) => handleTopicChange(index, e)}
+                                label="Topic"
+                            >
+                                {selectedSubcategory.topics?.map((topic) => (
+                                    <MenuItem key={topic.id} value={topic.name}>
+                                        {topic.name}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
                         )}
 
                         {question.mode === 'multiple-choice' && question.answers.map((answer, ansIndex) => (
@@ -286,6 +295,9 @@ const ExamAdder = () => {
                 </Button>
                 <Button type="submit" variant="contained" color="secondary">
                     Submit Exam
+                </Button>
+                <Button onClick={handleBackToDashboard} variant="contained" color="inherit">
+                    Back to Dashboard
                 </Button>
             </form>
         </div>

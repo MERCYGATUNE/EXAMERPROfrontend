@@ -179,6 +179,9 @@
     min-width: 85px;
     z-index: 1;
   }
+  .sign-out2:hover{
+    cursor: pointer;
+  }
   .logout-icon-container,
   .logout-link {
     display: flex;
