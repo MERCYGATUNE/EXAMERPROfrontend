@@ -11,6 +11,7 @@ const TopPerforming = ({ className = "" }) => {
         try {
             const response = await axios.get(`http://127.0.0.1:5555/get_all_exam_uuids`);
             setAllExamUUIDs(response.data);
+            console.log(response.data);
         } catch (err) {
             console.error(err);
         }

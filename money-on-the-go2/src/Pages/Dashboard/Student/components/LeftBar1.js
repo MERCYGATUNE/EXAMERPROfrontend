@@ -17,6 +17,11 @@ const LeftBar1 = ({ className = "" }) => {
   const onSettingsContainerClick = useCallback(() => {
     navigate("/student-dashboard-settings");
   }, [navigate]);
+  
+  const handleSignOut = () =>{
+    localStorage.removeItem('user');
+    navigate('/signin');
+  }
 
   return (
     <div className={`left-bar1 ${className}`}>
@@ -82,7 +87,7 @@ const LeftBar1 = ({ className = "" }) => {
               src={SignOutIcon}
             />
           </div>
-          <b className="sign-out1">Sign Out</b>
+          <b className="sign-out1" onClick={handleSignOut}>Sign Out</b>
         </div>
       </div>
     </div>

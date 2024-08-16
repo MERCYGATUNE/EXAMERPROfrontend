@@ -11,43 +11,46 @@ const GroupComponent1 = ({
   propHeight1,
   propMinHeight,
   propHeight2,
+  examName,
+  category,
+  subcategory,
 }) => {
   const examDetailsStyle = useMemo(() => {
     return {
-      height: propHeight,
+      height: '32px',
     };
-  }, [propHeight]);
+  }, ['32px']);
 
   const examTypeStyle = useMemo(() => {
     return {
-      width: propWidth,
-      height: propHeight1,
+      width: '362px',
+      height: '33px',
     };
-  }, [propWidth, propHeight1]);
+  }, ['362px', '33px']);
 
   const examSubjectStyle = useMemo(() => {
     return {
-      minHeight: propMinHeight,
+      minHeight: '33',
     };
-  }, [propMinHeight]);
+  }, ['33']);
 
   const formLabelStyle = useMemo(() => {
     return {
-      height: propHeight2,
+      height: '32px',
     };
-  }, [propHeight2]);
+  }, ['32px']);
 
   return (
     <div className={`exam-details-parent ${className}`}>
       <div className="exam-details" style={examDetailsStyle}>
-        <b className="jamias-high-school6">Jamias High School Exam</b>
+        <b className="jamias-high-school6">J{examName}</b>
       </div>
       <div className="exam-type" style={examTypeStyle}>
         <div className="exam-subject" style={examSubjectStyle}>
           <div className="form-label" style={formLabelStyle}>
-            <b className="jamias-high-school6">FORM 1</b>
+            <b className="jamias-high-school6">{category}</b>
           </div>
-          <b className="biology6">BIOLOGY</b>
+          <b className="biology6">{subcategory}</b>
         </div>
       </div>
       <div className="exam-actions">

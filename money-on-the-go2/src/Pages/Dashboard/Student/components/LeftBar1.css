@@ -186,6 +186,9 @@
     min-width: 85px;
     z-index: 1;
   }
+  .sign-out1:hover{
+    cursor: pointer;
+  }
   .left-bar1,
   .settings-icon-container,
   .sign-out-container {

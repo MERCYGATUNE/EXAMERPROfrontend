@@ -97,6 +97,10 @@
     color: var(--color-peru);
     font-family: var(--font-open-sans);
   }
+
+  .top-performing2{
+    cursor: pointer;
+  }
   @media screen and (max-width: 750px) {
     .take-a-quick {
       font-size: var(--font-size-13xl);

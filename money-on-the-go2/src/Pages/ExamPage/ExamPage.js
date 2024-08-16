@@ -56,7 +56,7 @@ const ExamPage = () => {
   const [answers, setAnswers] = useState({}); // Store user's answers
 
   const [hasStarted, setHasStarted] = useState(false);
-  const examDuration = 3 * 60;
+  const examDuration = duration * 60;
   const navigate = useNavigate();
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -65,7 +65,7 @@ const ExamPage = () => {
   const handleTextInputChange = (event) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
-      [currentQuestion.id]: event.target.value,
+      [currentQuestion?.id]: event.target.value,
     }));
     console.log(answers)
   };
@@ -74,7 +74,7 @@ const ExamPage = () => {
   const handleChoiceClick = (choice) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
-      [currentQuestion.id]: choice,
+      [currentQuestion?.id]: choice,
     }));
     console.log(answers)
   };
@@ -118,6 +118,7 @@ const ExamPage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+  if (questions == []) return <p>There are no questions in this exam. Try another.</p>
   return (
     <div className="exam-page">
       {!hasStarted ? (
@@ -160,16 +161,16 @@ const ExamPage = () => {
           <section className="question-content">
             <div className="which-of-the-following-is-the-wrapper">
               <b className="which-of-the">
-                {currentQuestion.question_text}
+                {currentQuestion?.question_text}
               </b>
             </div>
             <div className="choices">
               {currentQuestion.isChoice ? (
                 <div className="choice-a-parent">
-                  {currentQuestion.choice1 && (
+                  {currentQuestion?.choice1 && (
                     <div
-                      className={`choice-a ${selectedChoice === currentQuestion.choice1 ? 'selected' : ''}`}
-                      onClick={() => handleChoiceClick(currentQuestion.choice1)}
+                      className={`choice-a ${selectedChoice === currentQuestion?.choice1 ? 'selected' : ''}`}
+                      onClick={() => handleChoiceClick(currentQuestion?.choice1)}
                     >
                       <div className="choice-a-content">
                         <div className="choice-a-wrapper">
@@ -179,16 +180,16 @@ const ExamPage = () => {
                               <div className="choice-a-radio-button" />
                               <h2 className="a1">A</h2>
                             </div>
-                            <b className="mjini-district">{currentQuestion.choice1}</b>
+                            <b className="mjini-district">{currentQuestion?.choice1}</b>
                           </div>
                         </div>
                       </div>
                     </div>
                   )}
-                  {currentQuestion.choice2 && (
+                  {currentQuestion?.choice2 && (
                     <div
-                      className={`choice-b ${selectedChoice === currentQuestion.choice2 ? 'selected' : ''}`}
-                      onClick={() => handleChoiceClick(currentQuestion.choice2)}
+                      className={`choice-b ${selectedChoice === currentQuestion?.choice2 ? 'selected' : ''}`}
+                      onClick={() => handleChoiceClick(currentQuestion?.choice2)}
                     >
                       <div className="choice-b-content">
                         <div className="choice-b-wrapper">
@@ -200,16 +201,16 @@ const ExamPage = () => {
                                 <h2 className="b">B</h2>
                               </div>
                             </div>
-                            <b className="kigali">{currentQuestion.choice2}</b>
+                            <b className="kigali">{currentQuestion?.choice2}</b>
                           </div>
                         </div>
                       </div>
                     </div>
                   )}
-                  {currentQuestion.choice3 && (
+                  {currentQuestion?.choice3 && (
                     <div
-                      className={`choice-c ${selectedChoice === currentQuestion.choice3 ? 'selected' : ''}`}
-                      onClick={() => handleChoiceClick(currentQuestion.choice3)}
+                      className={`choice-c ${selectedChoice === currentQuestion?.choice3 ? 'selected' : ''}`}
+                      onClick={() => handleChoiceClick(currentQuestion?.choice3)}
                     >
                       <div className="choice-c-content">
                         <div className="choice-c-wrapper">
@@ -222,17 +223,17 @@ const ExamPage = () => {
                               </div>
                             </div>
                             <div className="choice-c-description">
-                              <b className="ougadougou">{currentQuestion.choice3}</b>
+                              <b className="ougadougou">{currentQuestion?.choice3}</b>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   )}
-                  {currentQuestion.choice4 && (
+                  {currentQuestion?.choice4 && (
                     <div
-                      className={`choice-d ${selectedChoice === currentQuestion.choice4 ? 'selected' : ''}`}
-                      onClick={() => handleChoiceClick(currentQuestion.choice4)}
+                      className={`choice-d ${selectedChoice === currentQuestion?.choice4 ? 'selected' : ''}`}
+                      onClick={() => handleChoiceClick(currentQuestion?.choice4)}
                     >
                       <div className="choice-d-content">
                         <div className="choice-d-wrapper">
@@ -245,7 +246,7 @@ const ExamPage = () => {
                               </div>
                             </div>
                             <div className="choice-d-description">
-                              <b className="lisbon">{currentQuestion.choice4}</b>
+                              <b className="lisbon">{currentQuestion?.choice4}</b>
                             </div>
                           </div>
                         </div>

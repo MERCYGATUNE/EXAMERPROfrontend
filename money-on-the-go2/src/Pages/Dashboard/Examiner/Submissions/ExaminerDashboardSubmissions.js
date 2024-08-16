@@ -1,10 +1,36 @@
 import LeftBar5 from "../components/LeftBar5";
 import AlluraAvatar from '../../../../assets/allura-avatar1@2x.png'
 import "./ExaminerDashboardSubmissions.css";
+import { useEffect, useState } from "react";
 
 const ExaminerDashboardSubmissions = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const username = user.username
+  const examiner_id = localStorage.getItem('userId');
+  const [data, setData] = useState(null);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:5555/get_submissions/${examiner_id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        const jsonData = await response.json();
+        console.log(jsonData);
+        setData(jsonData);
+      } else {
+        console.error('Failed to fetch data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="examiner-dashboard-submissions">
       <LeftBar5 />
@@ -59,146 +85,34 @@ const ExaminerDashboardSubmissions = () => {
             </div>
           </header>
           <div className="school-submissions">
+            {data ?(
+              data.map((submission) => {
+                <>
             <div className="teacher-name-parent">
               <div className="teacher-name">
-                <b className="mercy-gatune">Mercy Gatune</b>
+                <b className="mercy-gatune">{submission.user_name}</b>
               </div>
               <div className="school-details">
-                <b className="mercy-gatune">Aga Khan High School</b>
+                <b className="mercy-gatune">{submission.exam_name}</b>
               </div>
               <div className="school-details1">
-                <b className="form-16">FORM 1</b>
+                <b className="form-16">{submission.exam_category}</b>
               </div>
               <div className="submission-count">
-                <b className="submission-count-label">78%</b>
+                <b className="submission-count-label">{submission.grade}</b>
               </div>
               <div className="review-wrapper">
                 <b className="review">REVIEW</b>
               </div>
             </div>
-          </div>
-          <div className="submissions-table">
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
-          </div>
-          <div className="table-body">
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
-            <div className="table-header-name-parent">
-              <div className="table-header-name">
-                <b className="mercy-gatune1">Mercy Gatune</b>
-              </div>
-              <div className="table-header-school">
-                <b className="mercy-gatune1">Aga Khan High School</b>
-              </div>
-              <div className="table-header-type">
-                <b className="mercy-gatune1">FORM 1</b>
-              </div>
-              <div className="table-header-count">
-                <b className="table-header-count1">78%</b>
-              </div>
-              <div className="review-wrapper">
-                <b className="review1">REVIEW</b>
-              </div>
-            </div>
+                
+                </>
+              })
+              
+            
+            ): (<>
+            <h1> NO SUBMISSIONS YET!</h1>
+            </>)}
           </div>
         </section>
       </main>

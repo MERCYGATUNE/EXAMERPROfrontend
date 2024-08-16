@@ -13,7 +13,7 @@ const LeftBar5 = ({ className = "" }) => {
   const navigate = useNavigate();
 
   const onHomeContainerClick = useCallback(() => {
-    navigate("/examiner");
+    navigate("/examiner-dashboard");
   }, [navigate]);
 
   const onDocumentsContainerClick = useCallback(() => {

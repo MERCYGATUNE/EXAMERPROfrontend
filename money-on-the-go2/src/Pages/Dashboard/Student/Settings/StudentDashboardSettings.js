@@ -63,7 +63,7 @@ const StudentDashboardSettings = () => {
         <div className="ayogmailcom">{email}</div>
         <div className="danger-zone">DANGER ZONE</div>
         <GroupComponent />
-        <div className="rectangle-parent" onClick={openChangeUsernamePopup}>
+        <div className="rectangle-parent35" onClick={openChangeUsernamePopup}>
           <div className="frame-child" />
           <div className="change-your-username">CHANGE YOUR USERNAME</div>
         </div>

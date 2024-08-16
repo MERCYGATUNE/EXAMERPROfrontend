@@ -19,6 +19,11 @@ const LeftBar = ({ className = "" }) => {
     navigate("/student-dashboard-settings");
   }, [navigate]);
 
+  const handleSignOut = () =>{
+    localStorage.removeItem('user');
+    navigate('/signin');
+  }
+
   return (
     <div className={`left-bar2 ${className}`}>
       <div className="left-bar-inner" />
@@ -90,7 +95,7 @@ const LeftBar = ({ className = "" }) => {
               src={SignOutIcon}
             />
           </div>
-          <b className="sign-out2">Sign Out</b>
+          <b className="sign-out2" onClick={handleSignOut}>Sign Out</b>
         </div>
       </div>
     </div>
