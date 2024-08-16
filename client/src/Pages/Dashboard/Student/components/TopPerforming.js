@@ -9,7 +9,7 @@ const TopPerforming = ({ className = "" }) => {
   useEffect(() => {
     const fetchExamUUIDs = async () => {
         try {
-            const response = await axios.get(`http://http://0.0.0.0:10000/get_all_exam_uuids`);
+            const response = await axios.get(`http://0.0.0.0:5555/get_all_exam_uuids`);
             setAllExamUUIDs(response.data);
             console.log(response.data);
         } catch (err) {

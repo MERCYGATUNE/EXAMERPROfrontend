@@ -9,7 +9,7 @@ const ResetPasswordPopup = ({ className = "", onClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch('http://http://0.0.0.0:10000/reset_password', {
+    const response = await fetch('http://0.0.0.0:5555/reset_password', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

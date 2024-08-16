@@ -13,7 +13,7 @@ const ChangeUsernamePopup = ({ className = "", onClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch('http://http://0.0.0.0:10000/change_username', {
+    const response = await fetch('http://0.0.0.0:5555/change_username', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

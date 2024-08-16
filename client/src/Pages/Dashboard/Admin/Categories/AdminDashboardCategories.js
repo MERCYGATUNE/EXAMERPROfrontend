@@ -11,7 +11,7 @@ const AdminDashboardCategories = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://http://0.0.0.0:10000/all_categories', {
+      const response = await fetch('http://0.0.0.0:5555/all_categories', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const AdminDashboardCategories = () => {
   const handleSaveEditCategory = async (category) => {
     if (editingCategory) {
       try {
-        const response = await fetch('http://http://0.0.0.0:10000/edit_category', {
+        const response = await fetch('http://0.0.0.0:5555/edit_category', {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ const AdminDashboardCategories = () => {
   const handleSaveAddCategory = async () => {
     if (addingCategory) {
       try {
-        const response = await fetch('http://http://0.0.0.0:10000/add_category', {
+        const response = await fetch('http://0.0.0.0:5555/add_category', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ const AdminDashboardCategories = () => {
     if (addingSubcategory) {
       try {
         const selectedCategoryId = localStorage.getItem('selectedCategoryId');
-        const response = await fetch('http://http://0.0.0.0:10000/add_subcategory', {
+        const response = await fetch('http://0.0.0.0:5555/add_subcategory', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const AdminDashboardCategories = () => {
     if (addingTopic) {
       try {
         const selectedSubCategoryId = localStorage.getItem('selectedSubCategoryId');
-        const response = await fetch('http://http://0.0.0.0:10000/add_topic', {
+        const response = await fetch('http://0.0.0.0:5555/add_topic', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ const AdminDashboardCategories = () => {
   const handleSaveEditSubCategory = async (subcategory) => {
     if (editingSubCategory) {
       try {
-        const response = await fetch('http://http://0.0.0.0:10000/edit_subcategory', {
+        const response = await fetch('http://0.0.0.0:5555/edit_subcategory', {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -208,7 +208,7 @@ const AdminDashboardCategories = () => {
 
   const handleDeleteCategory = async (category_id) => {
     try {
-      const response = await fetch('http://http://0.0.0.0:10000/delete_category', {
+      const response = await fetch('http://0.0.0.0:5555/delete_category', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -224,7 +224,7 @@ const AdminDashboardCategories = () => {
 
   const handleDeleteSubCategory = async (subcategory_id) =>{
     try{
-      const response = await fetch('http://http://0.0.0.0:10000/delete_subcategory', {
+      const response = await fetch('http://0.0.0.0:5555/delete_subcategory', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -240,7 +240,7 @@ const AdminDashboardCategories = () => {
 
   const handleDeleteTopic = async (topic_id) => {
     try {
-      const response = await fetch('http://http://0.0.0.0:10000/delete_topic', {
+      const response = await fetch('http://0.0.0.0:5555/delete_topic', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -266,7 +266,7 @@ const AdminDashboardCategories = () => {
   const handleSaveEditTopic = async (topic) => {
     if (editingTopic) {
       try {
-        const response = await fetch('http://http://0.0.0.0:10000/edit_topic', {
+        const response = await fetch('http://0.0.0.0:5555/edit_topic', {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
