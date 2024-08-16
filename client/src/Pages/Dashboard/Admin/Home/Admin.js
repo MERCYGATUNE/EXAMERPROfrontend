@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5555/all_users', {
+      const response = await fetch('http://http://0.0.0.0:10000/all_users', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (user_id) => {
     try {
-      const response = await fetch('http://127.0.0.1:5555/delete_account', {
+      const response = await fetch('http://http://0.0.0.0:10000/delete_account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const AdminDashboard = () => {
       updatedData.password = newPassword; // Include new password if provided
     }
     try {
-      const response = await fetch('http://127.0.0.1:5555/update_user', {
+      const response = await fetch('http://http://0.0.0.0:10000/update_user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

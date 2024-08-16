@@ -24,7 +24,7 @@ import { useNavigate } from "react-router-dom";
       setMessage('Text does not match');
       return;
     }else{
-      const response = await fetch('http://127.0.0.1:5555/delete_account', {
+      const response = await fetch('http://http://0.0.0.0:10000/delete_account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ const ExamPage = () => {
     const fetchExam = async () => {
       try {
         console.log(`Fetching exam with ID: ${exam_id}`);
-        const response = await axios.get(`http://127.0.0.1:5555/get_exam/${exam_id}`);
+        const response = await axios.get(`http://http://0.0.0.0:10000/get_exam/${exam_id}`);
         console.log('Fetched exam data:', response.data);
         setExam(response.data);
         setLoading(false);
@@ -81,7 +81,7 @@ const ExamPage = () => {
 
   const submitExam = async () =>{
     try{
-      return axios.post(`http://127.0.0.1:5555/submit_exam`, {
+      return axios.post(`http://http://0.0.0.0:10000/submit_exam`, {
         exam_id,
         user_answers: answers,
         user_id: user.user_id,

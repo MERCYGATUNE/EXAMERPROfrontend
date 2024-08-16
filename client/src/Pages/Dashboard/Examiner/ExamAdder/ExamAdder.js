@@ -18,7 +18,7 @@ const ExamAdder = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:5555/all_categories', {
+            const response = await fetch('http://http://0.0.0.0:10000/all_categories', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const ExamAdder = () => {
                 examiner_id: userId,
             };
             console.log(examData)
-            await axios.post('http://127.0.0.1:5555/add_exams', examData);
+            await axios.post('http://http://0.0.0.0:10000/add_exams', examData);
             alert('Exam added successfully!');
         } catch (error) {
             console.error(error);

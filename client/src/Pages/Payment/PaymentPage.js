@@ -29,7 +29,7 @@ const CheckoutForm = () => {
     if (error) {
       console.error(error);
     } else {
-      const response = await axios.post('http://127.0.0.1:5555/create-subscription', {
+      const response = await axios.post('http://http://0.0.0.0:10000/create-subscription', {
         payment_method_id: paymentMethod.id,
         amount,
       });

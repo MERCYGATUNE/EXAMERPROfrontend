@@ -19,7 +19,7 @@ const ExamPageResults = () => {
     const fetchGrade = async () => {
       try {
         console.log(`Fetching result with ID: ${result_id}`);
-        const response = await axios.get(`http://127.0.0.1:5555/get_submission/${result_id}`);
+        const response = await axios.get(`http://http://0.0.0.0:10000/get_submission/${result_id}`);
 
         const { result, exam } = response.data;
         setGrade(result.grade);

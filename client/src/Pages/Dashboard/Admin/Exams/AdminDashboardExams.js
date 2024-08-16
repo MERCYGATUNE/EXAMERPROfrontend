@@ -23,7 +23,7 @@ const AdminDashboardExams = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5555/get_exams', {
+      const response = await fetch('http://http://0.0.0.0:10000/get_exams', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const AdminDashboardExams = () => {
   const handleSave = async () => {
     const updatedData = { ...editingExam };
     try {
-      const response = await fetch('http://127.0.0.1:5555/update_exam', {
+      const response = await fetch('http://http://0.0.0.0:10000/update_exam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const AdminDashboardExams = () => {
 
   const handleDelete = async (exam_id) => {
     try {
-      const response = await fetch('http://127.0.0.1:5555/delete_exam', {
+      const response = await fetch('http://http://0.0.0.0:10000/delete_exam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

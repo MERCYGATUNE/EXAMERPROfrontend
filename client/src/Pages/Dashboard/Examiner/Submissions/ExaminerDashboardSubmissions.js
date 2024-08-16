@@ -10,7 +10,7 @@ const ExaminerDashboardSubmissions = () => {
   const [data, setData] = useState(null);
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5555/get_submissions/${examiner_id}`, {
+      const response = await fetch(`http://http://0.0.0.0:10000/get_submissions/${examiner_id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

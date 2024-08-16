@@ -36,7 +36,7 @@ const ExaminerDashboardExams = () => {
   }, ['32px']);
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5555/get_exam_for_examiner/${examiner_id}`, {
+      const response = await fetch(`http://http://0.0.0.0:10000/get_exam_for_examiner/${examiner_id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const ExaminerDashboardExams = () => {
 
   const handleDeleteExamClick = async (exam_id) => {
     try {
-      const response = await fetch('http://127.0.0.1:5555/delete_exam', {
+      const response = await fetch('http://http://0.0.0.0:10000/delete_exam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
