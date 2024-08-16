@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import ExamIcon from '../../../../assets/3d-casual-life-documents-with-diagram-and-pen.png'
+import { useNavigate } from "react-router-dom";
+import ExamIcon from '../../../../assets/3d-casual-life-documents-with-diagram-and-pen.png';
 import "./TopPerforming4.css";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +22,7 @@ const TopPerforming4 = ({ className = "" }) => {
         <div className="iconlylight-outlinedocument-parent">
           <img
             className="iconlylight-outlinedocument6"
-            alt=""
+            alt="Exam Icon"
             src={ExamIcon}
           />
         </div>
