@@ -17,7 +17,7 @@ const SignInPage = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5555/login", {
+      const response = await axios.post("http://127.0.0.1:5555/login", {
         email,
         password,
       });

@@ -31,7 +31,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-            <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route path="/student-dashboard" element={<StudentDashboard />} />
           <Route element={<ProtectedRoute allowedRoles={['student']} />}>
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['student']} />}>
@@ -49,21 +49,27 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
             <Route path="/examiner-dashboard-settings" element={<ExaminerDashboardSettings />} />
           </Route>
+          <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
           <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
-            <Route path="/examiner-dashboard-submissions" element={<ExaminerDashboardSubmissions />} />
           </Route>
-          <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+            <Route path='/admin-dashboard' element={<AdminDashboard />} />
           </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path='/admin-dashboard-exams' element={<AdminDashboardExams />} />
-          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           </Route>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path='/admin-dashboard-categories' element={<AdminDashboardCategories />} />
-          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
           </Route>
-          <Route path='/add-exams' element={<ExamAdder/>} />
-          <Route path='/exam-page-results/:result_id' element={<ExamPageResults/>} />
-          <Route path='/exam-page/:exam_id' element={<ExamPage/>} />
+          <Route element={<ProtectedRoute allowedRoles={['examiner']} />}>
+            <Route path='/add-exams' element={<ExamAdder />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+            <Route path='/exam-page/:exam_id' element={<ExamPage />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+            <Route path='/exam-page-results/:result_id' element={<ExamPageResults />} />
+          </Route>
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
